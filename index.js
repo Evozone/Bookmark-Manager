@@ -33,8 +33,8 @@ function fetchBookmarks() {
     } else {
         bookmarks = [
             {
-                name: 'Class B Website',
-                url: 'https://evozone.github.io/ClassBWebSite/',
+                name: 'Askew',
+                url: 'https://www.google.com/search?q=askew&ei=sKb_YZnnMPPe2roPm_C6qAo&ved=0ahUKEwiZ__zp8ur1AhVzr1YBHRu4DqUQ4dUDCA4&uact=5&oq=askew&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAELEDEEMyBwgAELEDEEMyBwgAELEDEEMyCwgAEIAEELEDEIMBMgsIABCABBCxAxCDATIICC4QgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOgcIABBHELADOgcIABCwAxBDOgoIABDkAhCwAxgAOgwILhDIAxCwAxBDGAFKBAhBGABKBAhGGAFQsQdYsQdguQloAXACeACAAeIBiAHiAZIBAzItMZgBAKABAcgBEcABAdoBBggAEAEYCdoBBggBEAEYCA&sclient=gws-wiz',
             },
         ];
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
