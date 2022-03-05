@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signOutAction } from '../../actions';
-import { auth } from '../../firebase/firebas-config';
+import { auth } from '../../firebase/firebase-config';
 import { signOut } from 'firebase/auth';
 import { Redirect } from 'react-router-dom';
 

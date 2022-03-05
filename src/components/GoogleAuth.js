@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FcGoogle } from 'react-icons/fc';
-import { auth, provider } from '../firebase/firebas-config';
+import { auth, provider } from '../firebase/firebase-config';
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 
 import history from '../history';

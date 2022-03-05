@@ -4,14 +4,14 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC_H6uZMaLcO_awBcistxAQu7XcQ90iVaw",
-  authDomain: "bookmark-manager-2617.firebaseapp.com",
-  databaseURL: "https://bookmark-manager-2617-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "bookmark-manager-2617",
-  storageBucket: "bookmark-manager-2617.appspot.com",
-  messagingSenderId: "142193613472",
-  appId: "1:142193613472:web:2b4e21abd90d0f5b0d47c5",
-  measurementId: "G-GR8NCNZW51"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID 
 };
 
 const app = initializeApp(firebaseConfig);
