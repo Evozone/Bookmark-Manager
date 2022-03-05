@@ -1,65 +1,56 @@
 /* Grid */
 
 .grid {
-    max-width: 1000px;
-  }
-  .item {
-    user-select: none;
-    display: none;
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    line-height: 95px;
-    margin: 10px;
-    z-index: 1;
-    cursor: pointer;
-    will-change: transform;
-    border-radius: 6px;
-    transition: box-shadow 0.2s;
-    border-top-right-radius: 20px;
-  }
-  .item.muuri-item-positioning {
-    z-index: 2;
-  }
-  .item.muuri-item-dragging,
-  .item.muuri-item-releasing {
-    z-index: 3;
-  }
-  .item.muuri-item-dragging {
-    cursor: move;
-    border: 4px solid red;
-  }
-  .item.muuri-item-hidden {
-    z-index: 0;
-  }
-  .item-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 300;
-    background-color: rgba(202, 195, 195, 0.9);
-    border: 2px solid;
-    color: #333;
-    border-radius: 4px;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
-  }
-
-  
-.mainContainer {
-    max-width: 990px;
-    margin: 60px auto;
+  max-width: 1000px;
 }
-  
+.item {
+  user-select: none;
+  display: none;
+  position: absolute;
+  margin: 10px;
+  z-index: 1;
+  cursor: pointer;
+  will-change: transform;
+  border-radius: 6px;
+  transition: box-shadow 0.2s;
+}
+.item.muuri-item-positioning {
+  z-index: 2;
+}
+.item.muuri-item-dragging,
+.item.muuri-item-releasing {
+  z-index: 3;
+}
+.item.muuri-item-dragging {
+  cursor: move;
+  border: 4px solid red;
+}
+.item.muuri-item-hidden {
+  z-index: 0;
+}
+.item-content {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px 10px 20px;
+  font-weight: 300;
+  background-color: rgba(202, 195, 195, 0.9);
+  border: 2px solid;
+  color: #333;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.mainContainer {
+  max-width: 990px;
+  margin: 60px auto;
+}
+
 .addBKMbtn {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
 }
