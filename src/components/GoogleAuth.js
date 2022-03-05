@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { FcGoogle } from 'react-icons/fc';
 import { auth, provider } from '../firebase/firebase-config';
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
@@ -10,20 +10,24 @@ import { StartUsingGoogleBtn } from './LandingPage/StartUsingSection/StartUsingE
 import { NavBtnLink, NavContentWrap } from './LandingPage/Navbar/NavbarElements';
 import { MobileNavBtnLink } from './LandingPage/Navbar/MobileNavbarElements';
 
-class GoogleAuth extends Component {
+const GoogleAuth = ({ location }) => {
     
-    componentDidMount(){
-        onAuthStateChanged(auth, (user) => {
-            if(user){
-                this.props.signInAction(user.photoURL, user.uid);
-                history.push("/app");
-            }else{
-                this.props.signOutAction();
-            }
-        });
-    }
+    const isSignedIn = useSelector((state) => 
+        state.auth.isSignedIn
+    );
 
-    signInWithGoogle = () => {
+    const dispatch = useDispatch();
+
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            dispatch(signInAction(user.photoURL, user.uid));
+            history.push("/app");
+        }else{
+            dispatch(signOutAction());
+        }
+    });
+
+    function signInWithGoogle(){
         signInWithPopup(auth, provider)
         .then(() =>{
             history.push("/app");
@@ -33,9 +37,9 @@ class GoogleAuth extends Component {
         })
     }
 
-    renderButton = () => {
-        console.log("from google auth", this.props.isSignedIn);
-        if(this.props.location === "nav"){
+    function renderButton(){
+        console.log("from google auth", isSignedIn);
+        if(location === "nav"){
             return(
                 <NavBtnLink>
                     <NavContentWrap>
@@ -45,7 +49,7 @@ class GoogleAuth extends Component {
                     </NavContentWrap>
                 </NavBtnLink>
             );
-        }else if(this.props.location === "mobileNav"){
+        }else if(location === "mobileNav"){
             return(
                 <MobileNavBtnLink>
                     <FcGoogle 
@@ -63,21 +67,11 @@ class GoogleAuth extends Component {
         }
     }
 
-    render() {
-        return (
-            <div onClick={this.signInWithGoogle}>
-                {this.renderButton()}
-            </div>
-        );
-    }
+    return (
+        <div onClick={signInWithGoogle}>
+            {renderButton()}
+        </div>
+    );
 }
 
-const mapStateToProps = (state) => {
-    return { 
-        isSignedIn: state.auth.isSignedIn
-    };
-};
-
-export default connect(mapStateToProps, {
-    signInAction, signOutAction
-})(GoogleAuth);
+export default GoogleAuth;

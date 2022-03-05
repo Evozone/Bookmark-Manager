@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { signOutAction } from '../../actions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { auth } from '../../firebase/firebase-config';
 import { signOut } from 'firebase/auth';
 import { Redirect } from 'react-router-dom';
@@ -8,9 +7,21 @@ import { Redirect } from 'react-router-dom';
 import history from '../../history';
 import Home from './Home';
 
-class WebApp extends Component {
+const WebApp = () => {
 
-    signOutGoogle = () => {
+    const isSignedIn = useSelector((state) => 
+        state.auth.isSignedIn
+    );
+
+    const userPhoto = useSelector((state) => 
+        state.auth.userPhoto
+    );
+
+    const userId = useSelector((state) => 
+        state.auth.userId
+    );
+
+    function signOutGoogle(){
         signOut(auth).then(() => {
             alert("Successfully logged out, buh byee! See you later :)");
             history.push("/");
@@ -19,14 +30,14 @@ class WebApp extends Component {
         });
     }
 
-    renderContent = () => {
-        console.log("from webapp ", this.props.isSignedIn);
-        if(this.props.isSignedIn){
+    function renderContent(){
+        console.log("from webapp ", isSignedIn);
+        if(isSignedIn){
             return(
                 <div>
-                    <img src={`${this.props.userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
-                    <button onClick={this.signOutGoogle}>Sign Out</button>
-                    <p>{this.props.userId}</p>
+                    <img src={`${userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
+                    <button onClick={signOutGoogle}>Sign Out</button>
+                    <p>{userId}</p>
                     <Home/>
                 </div>
             );
@@ -37,23 +48,11 @@ class WebApp extends Component {
         }
     }
 
-    render() {
-        return (
-            <div>
-                {this.renderContent()}
-            </div>
-        );
-    }
+    return (
+        <div>
+            {renderContent()}
+        </div>
+    );
 }
-
-const mapStateToProps = (state) => {
-    return { 
-      isSignedIn: state.auth.isSignedIn,
-      userPhoto: state.auth.userPhoto,
-      userId: state.auth.userId
-    };
-};
   
-export default connect(
-    mapStateToProps, { signOutAction }
-)(WebApp);
+export default WebApp;

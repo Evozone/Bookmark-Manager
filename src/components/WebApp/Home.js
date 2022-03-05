@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-/* Muuri react */
 import { MuuriComponent } from 'muuri-react';
 
 import Bookmark from './Bookmark';
