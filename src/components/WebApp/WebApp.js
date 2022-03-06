@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { auth } from '../../firebase/firebase-config';
 import { signOut } from 'firebase/auth';
 import { Redirect } from 'react-router-dom';
 
 import history from '../../history';
-import Home from './Home';
+import AddBookmarkBtn from './AddBookmarkSection/AddBookmarkBtn';
+import Bookmarks from './BookmarksSection/Bookmarks';
 
 const WebApp = () => {
 
@@ -17,9 +18,25 @@ const WebApp = () => {
         state.auth.userPhoto
     );
 
-    const userId = useSelector((state) => 
-        state.auth.userId
-    );
+    // const userId = useSelector((state) => 
+    //     state.auth.userId
+    // );
+
+    const [bookmarks, setBookmarks] = useState([]);
+
+    useEffect(() => {
+        if (localStorage.getItem('bookmarks')) {
+            var localBookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+            setBookmarks(localBookmarks);
+        }
+    },[]);
+
+    const addBookmark = bookmark => {
+      const newBookmarks = [...bookmarks, bookmark];
+  
+      setBookmarks(newBookmarks);
+      window.localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
+    };
 
     function signOutGoogle(){
         signOut(auth).then(() => {
@@ -34,12 +51,14 @@ const WebApp = () => {
         console.log("from webapp ", isSignedIn);
         if(isSignedIn){
             return(
-                <div>
-                    <img src={`${userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
-                    <button onClick={signOutGoogle}>Sign Out</button>
-                    <p>{userId}</p>
-                    <Home/>
-                </div>
+                <React.Fragment>
+                    <div className="toolbar">
+                        <img src={`${userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
+                        <button onClick={signOutGoogle}>Sign Out</button>
+                    </div>
+                    <AddBookmarkBtn onSubmit={addBookmark} />
+                    <Bookmarks bookmarks={bookmarks} />
+                </React.Fragment>
             );
         }else{
             return(

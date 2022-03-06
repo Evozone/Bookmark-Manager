@@ -45,7 +45,7 @@ const GoogleAuth = ({ location }) => {
                     <NavContentWrap>
                         <FcGoogle 
                             size={27}
-                        /> &nbsp; Log In
+                        /> &nbsp; Sign In
                     </NavContentWrap>
                 </NavBtnLink>
             );
@@ -54,7 +54,7 @@ const GoogleAuth = ({ location }) => {
                 <MobileNavBtnLink>
                     <FcGoogle 
                         size={33}
-                    /> &nbsp; Log In
+                    /> &nbsp; Sign In
                 </MobileNavBtnLink>
             );
         }else{

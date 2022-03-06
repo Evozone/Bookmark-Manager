@@ -44,13 +44,7 @@
   transition: all 0.2s ease-out;
 }
 
-.mainContainer {
+.bookmarksContainer {
   max-width: 990px;
-  margin: 60px auto;
-}
-
-.addBKMbtn {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 80px;
+  margin: 40px auto;
 }
