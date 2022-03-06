@@ -11,7 +11,7 @@ import {
 } from './MobileNavbarElements';
 import GoogleAuth from '../../GoogleAuth';
 
-function MobileNavBar({ isOpen, toggle }) {
+const MobileNavBar = ({ isOpen, toggle }) => {
   return (
       <MobileNavBarContainer isOpen={isOpen} >
           <Icon onClick={toggle}>

@@ -8,7 +8,7 @@ import { firstFeature, secondFeature, thirdFeature } from './FeaturesSection/Fea
 import StartUsing from './StartUsingSection/StartUsing';
 import Contact from './ContactSection/Contact';
 
-function LandingPage() {
+const LandingPage = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => {

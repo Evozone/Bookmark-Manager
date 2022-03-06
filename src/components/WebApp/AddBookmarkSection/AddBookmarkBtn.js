@@ -1,41 +1,27 @@
 import React, { useState } from 'react';
-import { Btn } from './AddBookmarkBtnElement';
 
-function AddBookmarkBtn(props) {
+import AddBookmarkModal from '../AddBookmarkModal/AddBookmarkModal';
+import { Btn } from './AddBookmarkBtnElements';
 
-    const [input, setInput] = useState('');
+const AddBookmarkBtn = ({ onSubmit }) => {
 
-    const handleChange = e => {
-      setInput(e.target.value);
-    };
+  const [modalVisibility, setModalVisibility] = useState(false);
   
-    const handleSubmit = e => {
-      e.preventDefault();
-  
-      props.onSubmit({
-        id: Math.floor(Math.random() * 100000),
-        text: input
-      });
-      setInput('');
-    };
+  const toggleModalVisibility = () => {
+    setModalVisibility(!modalVisibility);
+  }
 
-    // return (
-    //     <form className="addBKMbtn" onSubmit={handleSubmit} action="">
-    //         <input
-    //             placeholder = "website name"
-    //             value = {input}
-    //             onChange = {handleChange}
-    //             className = "AddBookmarkInput"
-    //         />
-    //         <button onClick={handleSubmit} className='bookmark-button'>
-    //             Add Bookmark
-    //         </button>
-    //     </form>
-    // )
+  return (
+    <React.Fragment>
+      <Btn onClick={toggleModalVisibility}>Add Bookmark</Btn>
+      {modalVisibility && 
+        <AddBookmarkModal 
+          onSubmit={onSubmit} 
+          setModalVisibility={setModalVisibility} 
+        />}
+    </React.Fragment>
 
-    return (
-      <Btn>ADD BOOKMARK</Btn>
-    )
+  )
 }
 
 export default AddBookmarkBtn;
