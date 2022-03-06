@@ -16,4 +16,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//practicing branching 2
