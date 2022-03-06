@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Bookmark = ({ text, id }) => {
+const IndividualBookmark = ({ websiteName, websiteURL, id }) => {
 
     return (
         <div  id={id}  className="item">
             <div className="item-content">
-                {text}
+                <a href={websiteURL}>{websiteName}</a>
             </div>
         </div>
     );
 };
 
-export default Bookmark;
+export default IndividualBookmark;

@@ -22,6 +22,16 @@ const WebApp = () => {
     //     state.auth.userId
     // );
 
+
+    const signOutGoogle = () =>{
+        signOut(auth).then(() => {
+            alert("Successfully logged out, buh byee! See you later :)");
+            history.push("/");
+        }).catch((error) => {
+            alert("error");
+        });
+    }
+
     const [bookmarks, setBookmarks] = useState([]);
 
     useEffect(() => {
@@ -31,23 +41,14 @@ const WebApp = () => {
         }
     },[]);
 
-    const addBookmark = bookmark => {
+    const addBookmark = (bookmark) => {
       const newBookmarks = [...bookmarks, bookmark];
   
       setBookmarks(newBookmarks);
       window.localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
     };
 
-    function signOutGoogle(){
-        signOut(auth).then(() => {
-            alert("Successfully logged out, buh byee! See you later :)");
-            history.push("/");
-        }).catch((error) => {
-            alert("error");
-        });
-    }
-
-    function renderContent(){
+    const renderContent = () =>{
         console.log("from webapp ", isSignedIn);
         if(isSignedIn){
             return(

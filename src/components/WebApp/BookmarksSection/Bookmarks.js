@@ -1,13 +1,13 @@
 import React from 'react';
 import { MuuriComponent } from 'muuri-react';
 
-import Bookmark from './Bookmark';
+import IndividualBookmark from './IndividualBookmark';
 import './Bookmarks.css';
 
 const Bookmarks = ({ bookmarks }) => {
   
     const children = bookmarks.map((bookmark) => (
-      <Bookmark key={bookmark.id} {...bookmark} />
+      <IndividualBookmark key={bookmark.id} {...bookmark} />
     ));
   
     return (

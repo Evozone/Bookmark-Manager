@@ -14,7 +14,7 @@ import {
 } from './StartUsingElements';
 import GoogleAuth from '../../GoogleAuth';
 
-function StartUsing() {
+const StartUsing = () => {
     const localVersion = () => {
         window.open("https://evozone.github.io/Bookmark-Manager/");
     };

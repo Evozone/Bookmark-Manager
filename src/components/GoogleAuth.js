@@ -27,7 +27,7 @@ const GoogleAuth = ({ location }) => {
         }
     });
 
-    function signInWithGoogle(){
+    const signInWithGoogle = () => {
         signInWithPopup(auth, provider)
         .then(() =>{
             history.push("/app");
@@ -37,7 +37,7 @@ const GoogleAuth = ({ location }) => {
         })
     }
 
-    function renderButton(){
+    const renderButton = () => {
         console.log("from google auth", isSignedIn);
         if(location === "nav"){
             return(
