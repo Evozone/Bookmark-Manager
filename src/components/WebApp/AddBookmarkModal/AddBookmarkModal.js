@@ -63,7 +63,7 @@ const AddBookmarkModal = ({ onSubmit, setModalVisibility }) => {
                             />
                         </FormGroup>
                         <FormGroup>
-                            <FormLabel >Website Url</FormLabel>
+                            <FormLabel >Website URL</FormLabel>
                             <FormInput 
                                 type="url" 
                                 value={websiteURL} 

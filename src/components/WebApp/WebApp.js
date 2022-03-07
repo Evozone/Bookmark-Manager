@@ -33,6 +33,7 @@ const WebApp = () => {
     }
 
     const [bookmarks, setBookmarks] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         if (localStorage.getItem('bookmarks')) {
@@ -43,10 +44,13 @@ const WebApp = () => {
 
     const addBookmark = (bookmark) => {
       const newBookmarks = [...bookmarks, bookmark];
-  
       setBookmarks(newBookmarks);
       window.localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
     };
+
+    const handleSearchTerm = (e) => {
+        setSearchTerm(e.target.value);
+    }
 
     const renderContent = () =>{
         console.log("from webapp ", isSignedIn);
@@ -56,9 +60,10 @@ const WebApp = () => {
                     <div className="toolbar">
                         <img src={`${userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
                         <button onClick={signOutGoogle}>Sign Out</button>
+                        <input value={searchTerm} onChange={handleSearchTerm} type="text" />
                     </div>
                     <AddBookmarkBtn onSubmit={addBookmark} />
-                    <Bookmarks bookmarks={bookmarks} />
+                    <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} />
                 </React.Fragment>
             );
         }else{
