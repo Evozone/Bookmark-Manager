@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { MdOutlineClose } from 'react-icons/md';
 
 export const ModalContainer = styled.div`
+  z-index: 20;
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;

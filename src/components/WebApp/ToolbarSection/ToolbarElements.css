@@ -1,0 +1,48 @@
+.toolbar {
+    display: flex;
+    justify-content: center;
+    background: #00072e;
+    box-shadow: 0 3px 6px 0 rgb(0, 0, 0);
+}
+
+.toolbar button {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+}
+
+.signOutWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px 0 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ccc5c5e7;
+}
+
+.signOutWrapper img {
+    border-radius: 50%;
+    border: 2px solid #1da1f2;
+    height: 40px !important;
+    width: 40px !important;
+    margin: 0 10px 0 0;
+}
+
+.signOutWrapper p {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.toolbar input {
+    padding-left: 20px;
+    margin: 20px;
+    height: 29px;
+    width: 450px;
+    border-radius: 30px;
+    border: solid 1px black;
+}

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { auth } from '../../firebase/firebase-config';
-import { signOut } from 'firebase/auth';
 import { Redirect } from 'react-router-dom';
 
-import history from '../../history';
+import Toolbar from './ToolbarSection/Toolbar';
 import AddBookmarkBtn from './AddBookmarkSection/AddBookmarkBtn';
 import Bookmarks from './BookmarksSection/Bookmarks';
 
@@ -13,24 +11,6 @@ const WebApp = () => {
     const isSignedIn = useSelector((state) => 
         state.auth.isSignedIn
     );
-
-    const userPhoto = useSelector((state) => 
-        state.auth.userPhoto
-    );
-
-    // const userId = useSelector((state) => 
-    //     state.auth.userId
-    // );
-
-
-    const signOutGoogle = () =>{
-        signOut(auth).then(() => {
-            alert("Successfully logged out, buh byee! See you later :)");
-            history.push("/");
-        }).catch((error) => {
-            alert("error");
-        });
-    }
 
     const [bookmarks, setBookmarks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -57,11 +37,7 @@ const WebApp = () => {
         if(isSignedIn){
             return(
                 <React.Fragment>
-                    <div className="toolbar">
-                        <img src={`${userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
-                        <button onClick={signOutGoogle}>Sign Out</button>
-                        <input value={searchTerm} onChange={handleSearchTerm} type="text" />
-                    </div>
+                    <Toolbar searchTerm={searchTerm} handleSearchTerm={handleSearchTerm} />
                     <AddBookmarkBtn onSubmit={addBookmark} />
                     <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} />
                 </React.Fragment>
