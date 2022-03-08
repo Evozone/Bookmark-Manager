@@ -8,6 +8,7 @@
   display: none;
   position: absolute;
   margin: 10px;
+  margin-right: 20px;
   z-index: 1;
   will-change: transform;
   border-radius: 15px;
@@ -30,9 +31,9 @@
 .item-content {
   text-align: center;
   font-size: 20px;
-  padding: 2px 5px 10px;
+  padding: 5px 5px 17px;
   font-weight: 300;
-  background-color: rgba(202, 195, 195, 0.9);
+  background-color: #ccc5c5e7;
   color: #333;
   border-radius: 15px;
   -webkit-transition: all 0.2s ease-out;
@@ -40,6 +41,10 @@
   -ms-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+}
+
+.item-content:hover {
+  background-color: #ffffffe6;
 }
 
 .bookmarksContainer {
