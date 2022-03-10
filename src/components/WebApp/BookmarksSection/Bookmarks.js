@@ -3,6 +3,7 @@ import { MuuriComponent } from 'muuri-react';
 
 import IndividualBookmark from './IndividualBookmark';
 import './Bookmarks.css';
+import { BookmarksContainer } from './BookmarksElements';
 
 const Bookmarks = ({ bookmarks, searchTerm }) => {
   
@@ -19,7 +20,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
     );
   
     return (
-        <div className="bookmarksContainer">
+        <BookmarksContainer>
             <MuuriComponent 
                 dragEnabled
                 propsToData={({websiteName}) => ({websiteName})}
@@ -27,7 +28,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
             >
                 {children}
             </MuuriComponent>
-        </div>
+        </BookmarksContainer>
     );
 };
 

@@ -4,9 +4,16 @@ import { auth } from '../../../firebase/firebase-config';
 import { signOut } from 'firebase/auth';
 
 import history from '../../../history';
-import './ToolbarElements.css';
+import { 
+    ToolbarContainer,
+    ToggleThemeBtn,
+    SearchInput,
+    SignOutWrapper,
+    UserProfileImg,
+    SignOutTxt
+} from './ToolbarElements';
 
-const Toolbar = ({ handleSearchTerm, searchTerm }) => {
+const Toolbar = ({ handleSearchTerm, searchTerm, toggleTheme, theme }) => {
     
     const userPhoto = useSelector((state) => 
         state.auth.userPhoto
@@ -26,14 +33,19 @@ const Toolbar = ({ handleSearchTerm, searchTerm }) => {
     }
 
     return (
-        <div className="toolbar">
-            <button>Theme</button>
-            <input placeholder='🔎    Search for a bookmark...' value={searchTerm} onChange={handleSearchTerm} type="text" />
-            <div onClick={signOutGoogle} className="signOutWrapper">
-                <img src={`${userPhoto}`} alt="user profile" style={{width: "70px", height:"70px"}}></img>
-                <p>Sign Out</p>
-            </div>
-        </div>
+        <ToolbarContainer>
+            <ToggleThemeBtn theme={theme} onClick={toggleTheme} />
+            <SearchInput 
+                placeholder="🔎    Search for a bookmark..."
+                value={searchTerm} 
+                onChange={handleSearchTerm} 
+                type="text" 
+            />
+            <SignOutWrapper onClick={signOutGoogle} >
+                <UserProfileImg src={`${userPhoto}`} alt="user profile" />
+                <SignOutTxt>Sign Out</SignOutTxt>
+            </SignOutWrapper>
+        </ToolbarContainer>
     );
 }
 
