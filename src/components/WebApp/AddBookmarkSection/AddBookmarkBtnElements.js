@@ -2,16 +2,26 @@ import styled from 'styled-components';
 
 export const Btn = styled.h1`
     padding: 20px;
-    background: #ccc5c5e7;
+    background: ${props => props.theme.addBkmBtnBg};
+    color: ${props => props.theme.addBkmBtnTxtColor};
     border-radius: 7px;
     cursor: pointer;
     text-align: center;
     text-transform: uppercase;
-    width: 300px;
+    width: fit-content;
     margin: 20px auto 30px;
     user-select: none;
 
     &:hover {
-        background: #ffffffe6;
+        background: ${props => props.theme.addBkmBtnHoverBg};
+    }
+
+    @media screen and (max-width: 800px) {
+        margin: 20px auto 0;
+    }
+
+    @media screen and (max-width: 350px) {
+        font-size: 27px;
+        width: 80%;
     }
 `;

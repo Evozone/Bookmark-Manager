@@ -57,6 +57,7 @@ const AddBookmarkModal = ({ onSubmit, setModalVisibility }) => {
                         <FormGroup>
                             <FormLabel>Website Name</FormLabel>
                             <FormInput 
+                                autoFocus
                                 value={websiteName} 
                                 onChange={handleNameChange} 
                                 type="text"
