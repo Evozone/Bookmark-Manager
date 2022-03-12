@@ -6,6 +6,10 @@ export const ToolbarContainer = styled.div`
     justify-content: center;
     background: #00072e;
     box-shadow: 0 3px 6px 0 rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
 `;
 
 export const ToggleThemeBtn = styled(WiMoonAltThirdQuarter)`

@@ -9,7 +9,7 @@ export const Btn = styled.h1`
     text-align: center;
     text-transform: uppercase;
     width: fit-content;
-    margin: 20px auto 30px;
+    margin: 90px auto 30px;
     user-select: none;
 
     &:hover {
@@ -17,7 +17,7 @@ export const Btn = styled.h1`
     }
 
     @media screen and (max-width: 800px) {
-        margin: 20px auto 0;
+        margin: 140px auto 0;
     }
 
     @media screen and (max-width: 350px) {
