@@ -19,7 +19,7 @@ const IndividualBookmark = ({ websiteName, websiteURL, id }) => {
                 <TrashIcon />
                 <ContentWrapper>
                     <WebsiteFavicon src={faviconLink} alt="Logo" />
-                    <WebsiteName href={websiteURL}>{websiteName}</WebsiteName>
+                    <WebsiteName target="_blank" href={websiteURL}>{websiteName}</WebsiteName>
                 </ContentWrapper>
             </ItemContent>
         </Item>

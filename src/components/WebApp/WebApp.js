@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -45,13 +45,15 @@ const WebApp = () => {
         }
     };
 
-    const getBookmarks = async() => {
-        if(userId){
-            const bookmarksCollection = collection(db, userId);
-            const data = await getDocs(bookmarksCollection);
-            setBookmarks(data.docs.map((doc) => ({ ...doc.data() })));
-        }
-    }
+    const getBookmarks = useCallback(
+        async() => {
+            if(userId){
+                const bookmarksCollection = collection(db, userId);
+                const data = await getDocs(bookmarksCollection);
+                setBookmarks(data.docs.map((doc) => ({ ...doc.data() })));
+            }
+        },[userId]
+    );
 
     useEffect(() => {
         const listen = () => {
@@ -65,13 +67,14 @@ const WebApp = () => {
                             if(change.type === "added"){
                                 return change.doc.data()
                             }
+                            return null
                         })
                     )
                 });
             }
         }
         listen();
-    },[userId])
+    },[userId, getBookmarks])
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem('theme');
