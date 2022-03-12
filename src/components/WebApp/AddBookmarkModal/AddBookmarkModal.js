@@ -29,16 +29,18 @@ const AddBookmarkModal = ({ onSubmit, setModalVisibility }) => {
     };
   
     const saveBookmark = (e) => {
-      e.preventDefault();
-  
-      onSubmit({
-        id: Math.floor(Math.random() * 100000),
-        websiteName: websiteName,
-        websiteURL: websiteURL
-      });
-      setWebsiteName('');
-      setWebsiteURL('');
-      setModalVisibility(false);
+        e.preventDefault();
+        if (!websiteName || !websiteURL) {
+            alert('Please Submit values for both fields.');
+            return false;
+        }
+        onSubmit({
+            websiteName: websiteName,
+            websiteURL: websiteURL
+        });
+        setWebsiteName('');
+        setWebsiteURL('');
+        setModalVisibility(false);
     };
 
     const toggleModalVisibility = () => {
