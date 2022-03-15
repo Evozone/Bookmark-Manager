@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import { doc, setDoc } from 'firebase/firestore';
+import { useSelector } from 'react-redux';
 
+import { db } from '../../../firebase/firebase-config.js';
 import './AddBookmarkModalElements.js';
 import { 
     ModalContainer,
@@ -15,7 +18,10 @@ import {
     SaveBookmarkBtn
 } from './AddBookmarkModalElements';
 
-const AddBookmarkModal = ({ onSubmit, setModalVisibility }) => {
+const AddBookmarkModal = ({ setModalVisibility }) => {
+    const userId = useSelector((state) => 
+        state.auth.userId
+    );
 
     const [websiteName, setWebsiteName] = useState('');
     const [websiteURL, setWebsiteURL] = useState('');
@@ -28,19 +34,25 @@ const AddBookmarkModal = ({ onSubmit, setModalVisibility }) => {
         setWebsiteURL(e.target.value);
     };
   
-    const saveBookmark = (e) => {
+    const saveBookmark = async(e) => {
         e.preventDefault();
         if (!websiteName || !websiteURL) {
             alert('Please Submit values for both fields.');
             return false;
         }
-        onSubmit({
-            websiteName: websiteName,
-            websiteURL: websiteURL
-        });
+        let id = new Date().getTime();
+        if(userId){ 
+            setModalVisibility(false);
+            await setDoc(doc(db, userId, `_${id}`), 
+                { 
+                    id: `_${id}`, 
+                    websiteName: websiteName, 
+                    websiteURL: websiteURL 
+                }
+            );        
+        }
         setWebsiteName('');
         setWebsiteURL('');
-        setModalVisibility(false);
     };
 
     const toggleModalVisibility = () => {
