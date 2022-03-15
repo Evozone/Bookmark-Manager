@@ -4,12 +4,11 @@ import { Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { db } from '../../firebase/firebase-config';
 import { 
-    doc, 
-    setDoc, 
     getDocs, 
     collection, 
     onSnapshot, 
-    query
+    query,
+    doc
 } from 'firebase/firestore';
 
 import { GlobalStyles } from './WebAppGlobalStyle';
@@ -32,54 +31,71 @@ const WebApp = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [theme, setTheme] = useState('dark');
 
-    const addBookmark = async(bookmark) => {
-        bookmark.id = new Date().getTime();
-        if(userId){ 
-            await setDoc(doc(db, userId, `_${bookmark.id}`), 
-                { 
-                    id: `_${bookmark.id}`, 
-                    websiteName: bookmark.websiteName, 
-                    websiteURL: bookmark.websiteURL 
-                }
-            );        
-        }
-    };
-
-    const getBookmarks = useCallback(
-        async() => {
+    useEffect(() => {
+        const getBookmarks = async() => {
             if(userId){
+                const tempArray = [];
                 const bookmarksCollection = collection(db, userId);
                 const data = await getDocs(bookmarksCollection);
-                setBookmarks(data.docs.map((doc) => ({ ...doc.data() })));
-            }
-        },[userId]
-    );
-
-    useEffect(() => {
-        const listen = () => {
-            if(userId){
-                const q = query(collection(db, userId));
-                onSnapshot(q, (snapshot) => {
-                    let changes = snapshot.docChanges();  
-                    getBookmarks();
-                    setBookmarks(
-                        changes.map((change) => {
-                            if(change.type === "added"){
-                                return change.doc.data()
-                            }
-                            return null
-                        })
-                    )
-                });
+                data.forEach((doc) => {
+                    tempArray.push(doc.data());
+                })                
+                // console.log("tempArray", tempArray);
+                setBookmarks(tempArray)
+                // console.log("bookmarks", bookmarks);
             }
         }
-        listen();
-    },[userId, getBookmarks])
+        getBookmarks();
+    },[userId])
+
+    // const getBookmarks = useCallback(
+    //     async() => {
+    //         if(userId){
+    //             const bookmarksCollection = collection(db, userId);
+    //             const data = await getDocs(bookmarksCollection);
+    //             setBookmarks(data.docs.map((doc) => ({ ...doc.data() })));
+    //         }
+    //     },[userId]
+    // );
+
+    // useEffect(() => {
+    //     const listen = () => {
+    //         if(userId){
+    //             const q = query(collection(db, userId));
+    //             onSnapshot(q, (snapshot) => {
+    //                 let changes = snapshot.docChanges();  
+    //                 getBookmarks();
+    //                 setBookmarks(
+    //                     changes.map((change) => {
+    //                         if(change.type === "added"){
+    //                             return change.doc.data()
+    //                         }else if(change.type === "removed"){
+                                
+    //                         }
+    //                     }) 
+    //                 )
+    //             });
+    //         }
+    //     }
+    //     listen();
+    // },[userId, getBookmarks])
+
+    // if(userId){
+    //     onSnapshot(collection(db, userId),(snapshot) => {
+    //         setBookmarks(snapshot.docs.map(doc => doc.data()))
+    //     },[userId, bookmarks]);
+    // }
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem('theme');
         if(localTheme){
             setTheme(localTheme);
+        }
+
+        if(userId){
+            onSnapshot(collection(db, userId),(snapshot) => {
+                setBookmarks(snapshot.docs.map(doc => doc.data()))
+            },[userId, bookmarks]);
         }
     },[userId]);
 
@@ -109,8 +125,8 @@ const WebApp = () => {
                         searchTerm={searchTerm} 
                         handleSearchTerm={handleSearchTerm} 
                     />
-                    <AddBookmarkBtn onSubmit={addBookmark} />
-                    <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} />
+                    <AddBookmarkBtn />
+                    { bookmarks && <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} /> }
                 </ThemeProvider>
             );
         }else{

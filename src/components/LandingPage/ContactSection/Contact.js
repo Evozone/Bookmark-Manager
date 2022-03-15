@@ -44,7 +44,7 @@ const Contact = () => {
                         <li><a style={{color:"#7bfff6"}} href="https://github.com/vishal-codes">GitHub</a></li>
                         <li><a style={{color:"#7bfff6"}} href="https://www.linkedin.com/in/vishal-shinde-/">LinkedIn</a></li>
                         <li><a style={{color:"#7bfff6"}} href="https://twitter.com/vishaltwts">Twitter</a></li>
-                        <li><a style={{color:"#7bfff6"}} href="mailto:itsvishal2417@gmail.com">itsvishal2417@gmail.com</a></li>
+                        <li><a style={{color:"#7bfff6"}} href="mailto:itsvishal2617@duck.com">itsvishal2617@duck.com</a></li>
                     </ul>
                     P.S. - I am mostly active on twitter.
                     <ContactBtn onClick={toggleHome}>Back to Top ^</ContactBtn>

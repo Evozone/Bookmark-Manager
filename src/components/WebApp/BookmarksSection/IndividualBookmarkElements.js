@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IoMdTrash } from 'react-icons/io';
+import TrashIcon from '../TrashIcon/TrashIcon';
 
 export const Item = styled.div`
     user-select: none;
@@ -12,7 +12,6 @@ export const Item = styled.div`
 `;
 
 export const ItemContent = styled.div`
-    text-align: center;
     font-size: 20px;
     padding: 5px 5px 17px;
     font-weight: 300;
@@ -29,12 +28,12 @@ export const ItemContent = styled.div`
     }
 `;
 
-export const TrashIcon = styled(IoMdTrash)`
+export const CustomTrashIcon = styled(TrashIcon)`
     float: right;
     color: ${props => props.theme.addBkmBtnTxtColor};
     cursor: pointer;
     z-index: 2;
-    font-size: 23px;
+    height: 23px;
 `;
 
 export const ContentWrapper = styled.div`
