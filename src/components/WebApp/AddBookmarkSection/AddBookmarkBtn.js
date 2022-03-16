@@ -16,6 +16,7 @@ const AddBookmarkBtn = ({ onSubmit }) => {
       <Btn onClick={toggleModalVisibility}>Add Bookmark</Btn>
       {modalVisibility && 
         <AddBookmarkModal
+          onSubmit={onSubmit}
           setModalVisibility={setModalVisibility} 
         />}
     </React.Fragment>
