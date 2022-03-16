@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { db } from '../../firebase/firebase-config';
 import { 
-    getDocs, 
+    doc,
+    setDoc,
+    // getDocs
     collection, 
     onSnapshot, 
-    query,
-    doc
 } from 'firebase/firestore';
 
 import { GlobalStyles } from './WebAppGlobalStyle';
@@ -31,60 +31,35 @@ const WebApp = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [theme, setTheme] = useState('dark');
 
-    useEffect(() => {
-        const getBookmarks = async() => {
-            if(userId){
-                const tempArray = [];
-                const bookmarksCollection = collection(db, userId);
-                const data = await getDocs(bookmarksCollection);
-                data.forEach((doc) => {
-                    tempArray.push(doc.data());
-                })                
-                // console.log("tempArray", tempArray);
-                setBookmarks(tempArray)
-                // console.log("bookmarks", bookmarks);
-            }
+    const addBookmark= async(websiteName, websiteURL) => {
+        let id = new Date().getTime();
+        if(userId){ 
+            await setDoc(doc(db, userId, `_${id}`), 
+                { 
+                    id: `_${id}`, 
+                    websiteName: websiteName, 
+                    websiteURL: websiteURL 
+                }
+            );        
         }
-        getBookmarks();
-    },[userId])
-
-    // const getBookmarks = useCallback(
-    //     async() => {
-    //         if(userId){
-    //             const bookmarksCollection = collection(db, userId);
-    //             const data = await getDocs(bookmarksCollection);
-    //             setBookmarks(data.docs.map((doc) => ({ ...doc.data() })));
-    //         }
-    //     },[userId]
-    // );
+    }
 
     // useEffect(() => {
-    //     const listen = () => {
+    //     const getBookmarks = async() => {
     //         if(userId){
-    //             const q = query(collection(db, userId));
-    //             onSnapshot(q, (snapshot) => {
-    //                 let changes = snapshot.docChanges();  
-    //                 getBookmarks();
-    //                 setBookmarks(
-    //                     changes.map((change) => {
-    //                         if(change.type === "added"){
-    //                             return change.doc.data()
-    //                         }else if(change.type === "removed"){
-                                
-    //                         }
-    //                     }) 
-    //                 )
-    //             });
+    //             const tempArray = [];
+    //             const bookmarksCollection = collection(db, userId);
+    //             const data = await getDocs(bookmarksCollection);
+    //             data.forEach((doc) => {
+    //                 tempArray.push(doc.data());
+    //             })                
+    //             // console.log("tempArray", tempArray);
+    //             setBookmarks(tempArray)
+    //             // console.log("bookmarks", bookmarks);
     //         }
     //     }
-    //     listen();
-    // },[userId, getBookmarks])
-
-    // if(userId){
-    //     onSnapshot(collection(db, userId),(snapshot) => {
-    //         setBookmarks(snapshot.docs.map(doc => doc.data()))
-    //     },[userId, bookmarks]);
-    // }
+    //     getBookmarks();
+    // },[userId])
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem('theme');
@@ -93,9 +68,28 @@ const WebApp = () => {
         }
 
         if(userId){
+            // const tempArray = [];
             onSnapshot(collection(db, userId),(snapshot) => {
+                // snapshot.docChanges().forEach((change) => {
+                //     if (change.type === "added") {
+                //         // console.log("Added bookmark ",change.doc.data());
+                //         tempArray.push(change.doc.data());
+                //     }
+                //     if (change.type === "removed") {
+                //         console.log("Removed bookmark ",change.doc.data());
+                //         tempArray.pop(change.doc.data());
+                //     }                          
+                // })
+                // console.log("Above setstate ", tempArray);
+                // console.log([...bookmarks, ...tempArray]);
+                // setBookmarks(tempArray);
+                // setTimeout(() => {
+                //     console.log("Below setstate ", bookmarks);
+                // }, 6000)
+                // console.log("below set state bookmarks ", bookmarks);
+                // snapshot.docs.map(doc => console.log(doc.data()));
                 setBookmarks(snapshot.docs.map(doc => doc.data()))
-            },[userId, bookmarks]);
+            },[]);
         }
     },[userId]);
 
@@ -125,8 +119,11 @@ const WebApp = () => {
                         searchTerm={searchTerm} 
                         handleSearchTerm={handleSearchTerm} 
                     />
-                    <AddBookmarkBtn />
-                    { bookmarks && <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} /> }
+                    <AddBookmarkBtn onSubmit={addBookmark} />
+                    {   
+                        bookmarks && 
+                        <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} /> 
+                    }
                 </ThemeProvider>
             );
         }else{
