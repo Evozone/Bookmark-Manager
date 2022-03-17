@@ -28,7 +28,9 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
         <BookmarksContainer>
             <MuuriComponent 
                 dragEnabled
-                sort={(window.localStorage.getItem('layout').split(","))}
+                sort={ 
+                    window.localStorage.getItem('layout') && window.localStorage.getItem('layout').split(",")
+                }
                 propsToData={({id, websiteName}) => ({id, websiteName})}
                 filter={filterFunction}
                 onDragEnd={function (item) {
