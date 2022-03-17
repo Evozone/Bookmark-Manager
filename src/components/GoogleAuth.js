@@ -5,10 +5,10 @@ import { auth, provider } from '../firebase/firebase-config';
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 
 import history from '../history';
+import { MobileNavBtnLink } from './LandingPage/Navbar/MobileNavbarElements';
+import { NavBtnLink, NavContentWrap } from './LandingPage/Navbar/NavbarElements';
 import { signInAction, signOutAction } from '../actions';
 import { StartUsingGoogleBtn } from './LandingPage/StartUsingSection/StartUsingElements';
-import { NavBtnLink, NavContentWrap } from './LandingPage/Navbar/NavbarElements';
-import { MobileNavBtnLink } from './LandingPage/Navbar/MobileNavbarElements';
 
 const GoogleAuth = ({ location }) => {
     
