@@ -18,8 +18,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
 
     const filterFunction = useCallback(
         ({websiteName}) => {
-          // Return if the input is contained in the text data.
-          return websiteName.toLowerCase().indexOf(searchTerm) > -1;
+          return websiteName.indexOf(searchTerm.toLowerCase()) > -1 || websiteName.indexOf(searchTerm.toUpperCase()) > -1;
         },
         [searchTerm]
     );

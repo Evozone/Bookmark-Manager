@@ -71,7 +71,6 @@ const WebApp = () => {
     }
 
     const renderContent = () =>{
-        console.log("from webapp ", isSignedIn);
         if(isSignedIn){
             return(
                 <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
