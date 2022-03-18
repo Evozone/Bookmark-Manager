@@ -1,27 +1,22 @@
 import styled from 'styled-components';
 
-export const Btn = styled.h1`
-    padding: 20px;
-    background: ${props => props.theme.addBkmBtnBg};
-    color: ${props => props.theme.addBkmBtnTxtColor};
-    border-radius: 7px;
+export const Btn = styled.button`
+    font-size: 50px;
+    padding: 0px 15px 0 15px;
+    background-color: ${props => props.theme.addBkmBtnBg};
+    color: ${props => props.theme.addBkmIconColor};
+    border-radius: 50%;
     cursor: pointer;
-    text-align: center;
-    text-transform: uppercase;
-    width: fit-content;
-    margin: 90px auto 30px;
-    user-select: none;
+    border: none;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    z-index: 99;
+    margin: 0;
 
-    &:hover {
-        background: ${props => props.theme.addBkmBtnHoverBg};
-    }
-
-    @media screen and (max-width: 800px) {
-        margin: 140px auto 0;
-    }
-
-    @media screen and (max-width: 350px) {
-        font-size: 27px;
-        width: 80%;
+    @media screen and (max-width: 600px) {
+        font-size: 49px;
+        padding: 0px 13px 0 13px;
+        right: 20px;
     }
 `;

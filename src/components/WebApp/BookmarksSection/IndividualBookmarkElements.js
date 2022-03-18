@@ -15,7 +15,7 @@ export const ItemContent = styled.div`
     font-size: 20px;
     padding: 5px 5px 17px;
     font-weight: 300;
-    background-color: ${props => props.theme.addBkmBtnBg};
+    background-color: ${props => props.theme.BookmarkBg};
     border-radius: 15px;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -24,13 +24,13 @@ export const ItemContent = styled.div`
     transition: all 0.2s ease-out;
 
     &:hover{
-        background-color: ${props => props.theme.addBkmBtnHoverBg};
+        background-color: ${props => props.theme.BookmarkHoverBg};
     }
 `;
 
 export const CustomTrashIcon = styled(TrashIcon)`
     float: right;
-    color: ${props => props.theme.addBkmBtnTxtColor};
+    color: ${props => props.theme.BookmarkTxtColor};
     cursor: pointer;
     z-index: 2;
     height: 23px;
@@ -43,9 +43,9 @@ export const ContentWrapper = styled.div`
 
 export const WebsiteName = styled.a`
     margin-right: 5px;
-    font-weight: bold;
+    font-weight: 500;
     text-decoration: none;
-    color: ${props => props.theme.addBkmBtnTxtColor};
+    color: ${props => props.theme.BookmarkTxtColor};
 
     &:hover{
         text-decoration: underline;

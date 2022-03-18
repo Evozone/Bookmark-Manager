@@ -13,7 +13,7 @@ const AddBookmarkBtn = ({ onSubmit }) => {
 
   return (
     <React.Fragment>
-      <Btn onClick={toggleModalVisibility}>Add Bookmark</Btn>
+      <Btn onClick={toggleModalVisibility}>+</Btn>
       { 
         modalVisibility && 
         <AddBookmarkModal

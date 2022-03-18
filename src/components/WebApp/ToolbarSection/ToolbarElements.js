@@ -82,5 +82,5 @@ export const UserProfileImg = styled.img`
 `;
 
 export const SignOutTxt = styled.p`
-    font-weight: bold;
+    font-weight: 500;
 `;
