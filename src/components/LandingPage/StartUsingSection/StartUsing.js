@@ -10,7 +10,6 @@ import {
     StartUsingIcon,
     StartUsingLocalBtn,
     ContentP,
-    ContentPRed
 } from './StartUsingElements';
 import GoogleAuth from '../../GoogleAuth';
 
@@ -31,7 +30,7 @@ const StartUsing = () => {
                 <StartUsingCard>
                 <StartUsingIcon src={IconTwo}/>
                     <StartUsingLocalBtn onClick={localVersion}>Use Local Version</StartUsingLocalBtn>
-                    <ContentPRed>If you use local version then your bookmarks would be stored in local storage and won't be available on every device as they wont be synced up.</ContentPRed>
+                    <ContentP>If you use local version then your bookmarks would be stored in local storage and won't be available on every device as they wont be synced up.</ContentP>
                 </StartUsingCard>
             </StartUsingWrapper>
         </StartUsingContainer>

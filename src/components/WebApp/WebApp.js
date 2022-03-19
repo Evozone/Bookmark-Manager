@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { db } from '../../firebase/firebase-config';
 import { 
     doc,
     setDoc,
@@ -10,6 +9,7 @@ import {
     onSnapshot, 
 } from 'firebase/firestore';
 
+import { db } from '../../firebase/firebase-config';
 import { GlobalStyles } from './WebAppGlobalStyle';
 import { lightTheme, darkTheme} from './Theme';
 import Toolbar from './ToolbarSection/Toolbar';

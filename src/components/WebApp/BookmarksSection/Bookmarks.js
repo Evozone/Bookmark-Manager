@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { MuuriComponent } from 'muuri-react';
 
-import IndividualBookmark from './IndividualBookmark';
 import './Bookmarks.css';
+import IndividualBookmark from './IndividualBookmark';
 import { BookmarksContainer } from './BookmarksElements';
 
 const Bookmarks = ({ bookmarks, searchTerm }) => {
