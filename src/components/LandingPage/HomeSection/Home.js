@@ -1,26 +1,32 @@
 import React from 'react';
 
-import Video from '../../../assets/video.mp4';
+import desktopImage from '../../../assets/DesktopBgImg.png';
+import mobileImage from '../../../assets/MobileBgImg.png';
 
 import { 
   HomeContainer,
   HomeBg,
-  VideoBg,
+  BgImg,
   HomeContent,
   HomeH1,
-  HomeP
+  HomeP,
+  ScrollDown
 } from './HomeElements';
 
 const Home = () => {
+
+  const BgImgSrc = window.innerWidth >= 690 ? desktopImage : mobileImage;
+
   return (
       <HomeContainer>
         <HomeBg>
-          <VideoBg autoPlay loop muted src={Video} type='video/mp4' />
+          <BgImg src={BgImgSrc}/>
         </HomeBg>
         <HomeContent>
           <HomeH1>Bookmark Manager</HomeH1>
           <HomeP>Simple, Safe & Easily Accessible! </HomeP>
         </HomeContent>
+        <ScrollDown>Scroll Down</ScrollDown>
       </HomeContainer>
   );
 };
