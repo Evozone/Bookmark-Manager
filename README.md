@@ -32,6 +32,8 @@ There are two versions of this project. I have simplied the difference between t
 </table>
 </div>
 
+<br>
+
 ## Team Members👩‍💻👨‍💻 :
 
 <a href="https://github.com/Evozone/Bookmark-Manager/graphs/contributors">
