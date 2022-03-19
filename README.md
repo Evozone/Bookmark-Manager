@@ -21,6 +21,12 @@ There are two versions of this project. I have simplied the difference between t
 
 <br>
 
+## Project Flow
+
+<img src="RepoImages/project-flow.png">
+
+<br>
+
 ## Project Maintainer 🛠
 
 <div align="center">
