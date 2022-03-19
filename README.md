@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the Mini Project which we made in Semester 4(still pursuing) as a part of our Computer Science Engineering course. <br>
+This is the Mini Project which [we](https://github.com/Evozone/Bookmark-Manager#team-members-) made in Semester 4(still pursuing) as a part of our Computer Science Engineering course. <br>
 Bookmark manager(v2) is a Progressive Web App which allows you to manage your  bookmarks from any device regardless of the operating system or browser being used.  
 
 There are two versions of this project. I have simplied the difference between them with the help of the following table -
