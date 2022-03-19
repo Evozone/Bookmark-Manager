@@ -18,7 +18,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
 
     const filterFunction = useCallback(
         ({websiteName}) => {
-          return websiteName.indexOf(searchTerm.toLowerCase()) > -1 || websiteName.indexOf(searchTerm.toUpperCase()) > -1;
+            return websiteName.indexOf(searchTerm) > -1;
         },
         [searchTerm]
     );

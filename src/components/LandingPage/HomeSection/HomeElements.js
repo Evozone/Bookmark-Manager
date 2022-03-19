@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
     background: #0c0c0c;
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +9,6 @@ export const HomeContainer = styled.div`
     height: 100vh;
     position: relative;
     z-index: 1;
-
     :before {
         content: '';
         position: absolute;
@@ -18,12 +16,13 @@ export const HomeContainer = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(
-                0, 
-                rgba(0,0,0,0.6) 0%, 
-                rgba(0,0,0,1) 100%
-            ),
-            linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+        overflow: hidden;
+        background: rgb(0,0,0);
+        background: radial-gradient(
+            circle, rgba(0,0,0,0.5284488795518207) 0%,
+            rgba(0,0,0,0.676908263305322) 38%, 
+            rgba(0,0,0,0.923406862745098) 100%
+        );
         z-index: 2;
     }
 `;
@@ -39,12 +38,23 @@ export const HomeBg = styled.div`
     overflow: hidden;
 `;
 
-export const VideoBg = styled.video`
+export const BgImg = styled.img`
+    position: absolute;
+    top: 25%;
+    left: 0;
+    height: 100vh;
     width: 100%;
-    height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    background: #232a34;
+    background-size: cover;
+    transform: rotateY(-10deg) rotateX(20deg) scale(1.3);
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+
+    @media screen and (max-width: 760px) {
+        top: 90px;
+        transform: rotateY(1deg) rotateX(0deg) scale(1);
+    }
 `;
 
 export const HomeContent = styled.div`
@@ -95,3 +105,25 @@ export const HomeP = styled.p`
         font-size: 14px;
     }
 `;
+
+export const ScrollDown = styled.div`
+    z-index: 5;
+    color: #fff;
+    font-weight: 600;
+    max-width: fit-content;
+    position: absolute;
+    bottom: 7%;
+    animation: float 3s ease-in-out infinite;
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        60% {
+            transform: translateY(-15px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+`
