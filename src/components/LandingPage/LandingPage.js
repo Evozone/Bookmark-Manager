@@ -4,7 +4,7 @@ import Navbar from './Navbar/Navbar';
 import MobileNavBar from './Navbar/MobileNavbar';
 import Home from './HomeSection/Home';
 import Features from './FeaturesSection/Features';
-import { firstFeature, secondFeature, thirdFeature } from './FeaturesSection/FeaturesContent';
+import { firstFeature, secondFeature, thirdFeature, fourthFeature } from './FeaturesSection/FeaturesContent';
 import StartUsing from './StartUsingSection/StartUsing';
 import Contact from './ContactSection/Contact';
 
@@ -21,9 +21,10 @@ const LandingPage = () => {
           <Navbar toggle={toggle} />
           <Home/>
           <div id="features">
-            <Features {...firstFeature}/>
-            <Features {...secondFeature}/>
-            <Features {...thirdFeature}/>
+            <Features {...firstFeature} />
+            <Features {...secondFeature} />
+            <Features {...thirdFeature} />
+            <Features {...fourthFeature} />
           </div>
           <StartUsing/>
           <Contact/>

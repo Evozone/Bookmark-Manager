@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { FcGoogle } from 'react-icons/fc';
 import { auth, provider } from '../firebase/firebase-config';
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
@@ -11,10 +11,6 @@ import { signInAction, signOutAction } from '../actions';
 import { StartUsingGoogleBtn } from './LandingPage/StartUsingSection/StartUsingElements';
 
 const GoogleAuth = ({ location }) => {
-    
-    const isSignedIn = useSelector((state) => 
-        state.auth.isSignedIn
-    );
 
     const dispatch = useDispatch();
 
@@ -38,7 +34,6 @@ const GoogleAuth = ({ location }) => {
     }
 
     const renderButton = () => {
-        console.log("from google auth", isSignedIn);
         if(location === "nav"){
             return(
                 <NavBtnLink>

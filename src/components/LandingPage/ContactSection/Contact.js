@@ -27,7 +27,7 @@ const Contact = () => {
               <LeftContent>
                 <ContentH>About Developer</ContentH>
                 <Content>
-                    Hey beloved user I am <a style={{color:"#7bfff6"}} href="https://vishal-codes.github.io">Vishal Shinde</a> ,creator of this web app. I am an aspiring Computer Science student based in Mumbai, India. I am deeply passionate about software development innovations, firm believer of team work and striving hard with other community members to create an impact. I often help my peers and juniors to get started with programming and introduce them to open source.
+                    Hey beloved user I am <a style={{color:"#7bfff6"}} href="https://vishal-codes.github.io">Vishal Shinde</a> creator of this web app. I am an aspiring Computer Science student based in Mumbai, India. I am deeply passionate about software development innovations, firm believer of team work and striving hard with other community members to create an impact. I often help my peers and juniors to get started with programming and introduce them to open source.
                 </Content>
               </LeftContent>
               <MiddleContent>
@@ -39,7 +39,7 @@ const Contact = () => {
               <RightContent>
                 <ContentH>Contact</ContentH>
                 <Content>
-                    Want to report a bug or just want have a chat? My inbox is always open, feel free to drop a text
+                    Want to report a bug or just wanna have a chat? My inbox is always open, feel free to drop a text
                     <ul>
                         <li><a style={{color:"#7bfff6"}} href="https://github.com/vishal-codes">GitHub</a></li>
                         <li><a style={{color:"#7bfff6"}} href="https://www.linkedin.com/in/vishal-shinde-/">LinkedIn</a></li>

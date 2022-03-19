@@ -19,10 +19,6 @@ const Toolbar = ({ handleSearchTerm, searchTerm, toggleTheme, theme }) => {
         state.auth.userPhoto
     );
 
-    // const userId = useSelector((state) => 
-    //     state.auth.userId
-    // );
-
     const signOutGoogle = () =>{
         signOut(auth).then(() => {
             alert("Successfully logged out, buh byee! See you later :)");

@@ -68,6 +68,7 @@ export const StartUsingHeading = styled.div`
 `;
 
 export const StartUsingLocalBtn = styled.div`
+    font-weight: bolder;
     border-radius: 50px;
     background: red;
     color: #fff;
@@ -106,13 +107,6 @@ export const StartUsingGoogleBtn = styled.div`
 `;
 
 export const ContentP = styled.p`
-    font-size: 1rem;
-    text-align: center;
-`;
-
-export const ContentPRed = styled.h3`
-    font-weight: 500 !important;
-    color: red;
     font-size: 1rem;
     text-align: center;
 `;
