@@ -10,7 +10,6 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
     const children = bookmarks.map((bookmark) => (
         <IndividualBookmark  
             id={bookmark.id} 
-            text={bookmark.websiteName} 
             key={bookmark.id} 
             {...bookmark} 
         />
@@ -30,7 +29,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
                 sort={ 
                     window.localStorage.getItem('layout') && window.localStorage.getItem('layout').split(",")
                 }
-                propsToData={({id, websiteName}) => ({id, websiteName})}
+                propsToData={({ websiteName }) => ({ websiteName })}
                 filter={filterFunction}
                 onDragEnd={function (item) {
                     const grid = item.getGrid();

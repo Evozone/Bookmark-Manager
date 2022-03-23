@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { 
     doc,
     setDoc,
+    updateDoc,
     collection, 
     onSnapshot, 
 } from 'firebase/firestore';
@@ -26,11 +27,16 @@ const WebApp = () => {
         state.auth.userId
     );
 
+    const idForUpdateBookmark = useSelector((state) =>
+        state.updateBookmarkInfo.updatedBookmarkId
+    );
+    
+
     const [bookmarks, setBookmarks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [theme, setTheme] = useState('dark');
 
-    const addBookmark= async(websiteName, websiteURL) => {
+    const addBookmark = async(websiteName, websiteURL) => {
         let id = new Date().getTime();
         if(userId){ 
             await setDoc(doc(db, userId, `_${id}`), 
@@ -41,6 +47,12 @@ const WebApp = () => {
                 }
             );        
         }
+    }
+
+    const updateBookmark = async(websiteName, websiteURL) => {
+        const updatedData = { websiteName: websiteName, websiteURL: websiteURL }
+        await updateDoc(doc(db, userId, idForUpdateBookmark),updatedData);
+        renderContent();
     }
 
     useEffect(() => {
@@ -81,7 +93,7 @@ const WebApp = () => {
                         searchTerm={searchTerm} 
                         handleSearchTerm={handleSearchTerm} 
                     />
-                    <AddBookmarkBtn onSubmit={addBookmark} />
+                    <AddBookmarkBtn onUpdate={updateBookmark} onSubmit={addBookmark} />
                     {   
                         bookmarks && 
                         <Bookmarks searchTerm={searchTerm} bookmarks={bookmarks} /> 
