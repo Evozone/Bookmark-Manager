@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import TrashIcon from '../TrashIcon/TrashIcon';
+import EditIcon from '../EditIcon/EditIcon';
 
 export const Item = styled.div`
     user-select: none;
@@ -30,6 +31,15 @@ export const ItemContent = styled.div`
 
 export const CustomTrashIcon = styled(TrashIcon)`
     float: right;
+    color: ${props => props.theme.BookmarkTxtColor};
+    cursor: pointer;
+    z-index: 2;
+    height: 23px;
+`;
+
+export const CustomEditIcon = styled(EditIcon)`
+    position: absolute;
+    right: 34px;
     color: ${props => props.theme.BookmarkTxtColor};
     cursor: pointer;
     z-index: 2;

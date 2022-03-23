@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { modalVisibilityAction } from '../../../actions';
 import AddBookmarkModal from '../AddBookmarkModal/AddBookmarkModal';
 import { Btn } from './AddBookmarkBtnElements';
 
-const AddBookmarkBtn = ({ onSubmit }) => {
+const AddBookmarkBtn = ({ onSubmit, onUpdate }) => {
 
-  const [modalVisibility, setModalVisibility] = useState(false);
+  const dispatch = useDispatch();
+
+  const modalVisibility = useSelector((state) => 
+    state.modal.modalVisibility
+  );
   
   const toggleModalVisibility = () => {
-    setModalVisibility(!modalVisibility);
+    dispatch(modalVisibilityAction(!modalVisibility, "addBookmark"));
   }
 
   return (
@@ -18,7 +24,7 @@ const AddBookmarkBtn = ({ onSubmit }) => {
         modalVisibility && 
         <AddBookmarkModal
           onSubmit={onSubmit}
-          setModalVisibility={setModalVisibility} 
+          onUpdate={onUpdate}
         />
       }
     </React.Fragment>
