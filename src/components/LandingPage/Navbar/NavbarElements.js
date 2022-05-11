@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link as LinkRouter } from 'react-router-dom';
 import { Link as LinkScroll } from 'react-scroll/modules';
 
 export const Nav = styled.nav`
@@ -29,7 +28,7 @@ export const NavbarContainer = styled.div`
     max-width: 1100px;
 `;
 
-export const NavLogo = styled(LinkRouter)`
+export const NavLogo = styled.div`
     font-size: 2rem;
     cursor: pointer;
     justify-self: flex-start;
@@ -56,6 +55,7 @@ export const MobileIcon = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
         color: #fff;
+        user-select: none;
     }
 `;
 
@@ -65,6 +65,7 @@ export const NavMenu = styled.ul`
     list-style: none;
     text-align: center;
     margin-right: -22px;
+    user-select: none;
 
     @media screen and (max-width: 760px){
         display: none;

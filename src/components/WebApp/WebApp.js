@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { 
     doc,
@@ -19,10 +18,6 @@ import Bookmarks from './BookmarksSection/Bookmarks';
 
 const WebApp = () => {
 
-    const isSignedIn = useSelector((state) => 
-        state.auth.isSignedIn
-    );
-
     const userId = useSelector((state) => 
         state.auth.userId
     );
@@ -31,7 +26,6 @@ const WebApp = () => {
         state.updateBookmarkInfo.updatedBookmarkId
     );
     
-
     const [bookmarks, setBookmarks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [theme, setTheme] = useState('dark');
@@ -83,7 +77,6 @@ const WebApp = () => {
     }
 
     const renderContent = () =>{
-        if(isSignedIn){
             return(
                 <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
                     <GlobalStyles />
@@ -100,17 +93,12 @@ const WebApp = () => {
                     }
                 </ThemeProvider>
             );
-        }else{
-            return(
-                <Redirect to="/"/>
-            );
-        }
     }
 
     return (
-        <div>
+        <React.Fragment>
             {renderContent()}
-        </div>
+        </React.Fragment>
     );
 }
   

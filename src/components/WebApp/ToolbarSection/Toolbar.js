@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../../../firebase/firebase-config';
 import { signOut } from 'firebase/auth';
 
-import history from '../../../history';
 import { 
     ToolbarContainer,
     ToggleThemeBtn,
@@ -12,8 +11,11 @@ import {
     UserProfileImg,
     SignOutTxt
 } from './ToolbarElements';
+import { signOutAction } from '../../../actions';
 
 const Toolbar = ({ handleSearchTerm, searchTerm, toggleTheme, theme }) => {
+
+    const dispatch = useDispatch();
     
     const userPhoto = useSelector((state) => 
         state.auth.userPhoto
@@ -21,10 +23,10 @@ const Toolbar = ({ handleSearchTerm, searchTerm, toggleTheme, theme }) => {
 
     const signOutGoogle = () =>{
         signOut(auth).then(() => {
+            dispatch(signOutAction());
             alert("Successfully logged out, buh byee! See you later :)");
-            history.push("/");
         }).catch((error) => {
-            alert("error");
+            alert(error);
         });
     }
 
@@ -38,7 +40,7 @@ const Toolbar = ({ handleSearchTerm, searchTerm, toggleTheme, theme }) => {
                 type="text" 
             />
             <SignOutWrapper onClick={signOutGoogle} >
-                <UserProfileImg src={`${userPhoto}`} alt="user profile" />
+                <UserProfileImg src={userPhoto} alt="user profile" />
                 <SignOutTxt>Sign Out</SignOutTxt>
             </SignOutWrapper>
         </ToolbarContainer>

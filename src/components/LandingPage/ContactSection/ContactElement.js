@@ -69,8 +69,9 @@ export const RightContent = styled.div`
       }
 `;
 
-export const ContentH = styled.h3`
+export const ContentH = styled.p`
     font-size: 30px;
+    font-weight: 500;
     margin-bottom: 20px;
     color: #7bfff6;
 `;
@@ -78,6 +79,7 @@ export const ContentH = styled.h3`
 export const Content = styled.div`
     margin-bottom: 30px;
     font-size: 19px;
+    user-select: none;
 `;
 
 export const ContactBtn = styled.div`
@@ -92,6 +94,7 @@ export const ContactBtn = styled.div`
     outline: none;
     border: none;
     cursor: pointer;
+    user-select: none;
     transition: all 0.2s ease-in-out;
 
     &:hover{
