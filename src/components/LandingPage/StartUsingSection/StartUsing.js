@@ -23,12 +23,12 @@ const StartUsing = () => {
             <StartUsingHeading >Start Using! </StartUsingHeading>
             <StartUsingWrapper>
                 <StartUsingCard>
-                    <StartUsingIcon src={IconOne}/>
+                    <StartUsingIcon alt="SyncDevicesIcon" src={IconOne}/>
                     <GoogleAuth location={"startUsing"}/> 
                     <ContentP>If you want to access your bookmarks from any device or brwoser then just Sign in with your google account and voila! you will be redirected to the web app!</ContentP>
                 </StartUsingCard>
                 <StartUsingCard>
-                <StartUsingIcon src={IconTwo}/>
+                <StartUsingIcon alt="NoSyncDevicesIcon" src={IconTwo}/>
                     <StartUsingLocalBtn onClick={localVersion}>Use Local Version</StartUsingLocalBtn>
                     <ContentP>If you use local version then your bookmarks would be stored in local storage and won't be available on every device as they wont be synced up.</ContentP>
                 </StartUsingCard>

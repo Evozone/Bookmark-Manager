@@ -19,16 +19,18 @@ export const MobileNavBarContainer = styled.aside`
 
 export const CloseIcon = styled(FaTimes)`
     color: #fff;
+    user-select: none;
 `;
 
 export const Icon = styled.div`
     position: absolute;
-    top: 1.2rem;
+    top: 1.9rem;
     right: 1.5rem;
     background: transparent;
     font-size: 2rem;
     cursor: pointer;
     outline: none;
+    user-select: none;
 `;
 
 export const MobileNavBarWrapper = styled.div`
@@ -41,10 +43,15 @@ export const MobileNavBarMenu = styled.ul`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 80px);
     text-align: center;
+    user-select: none;
     
     @media screen and (max-width: 480px){
         grid-template-rows: repeat(6, 80);
     }
+`;
+
+export const MobileNavItem = styled.li`
+    height: 34px;
 `;
 
 export const MobileNavBarLink = styled(LinkScroll)`

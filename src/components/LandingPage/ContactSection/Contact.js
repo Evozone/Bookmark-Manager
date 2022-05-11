@@ -33,7 +33,7 @@ const Contact = () => {
               <MiddleContent>
                 <ContentH>Support Project</ContentH>
                 <Content>
-                    I am looking for sponsors! if someone is willing to sponsor to help me get a new hosting and database, I will be happy to have your or your company's name mentioned here on this page. You can contact me on itsvishal2417@gmail.com for sponsorship details. If you use this web app on daily basis then do consider sponsoring this project or I might have to shut down this project within months as I am using a free tier plan for the databse which has certain limits for usage.
+                    I am looking for sponsors! if someone is willing to sponsor to help me get a new hosting and database, I will be happy to have your or your company's name mentioned here on this page. You can contact me on itsvishal2617@duck.com for sponsorship details. If you use this web app on daily basis then do consider sponsoring this project or I might have to shut down this project within months as I am using a free tier plan for the databse which has certain limits for usage.
                 </Content>
               </MiddleContent>
               <RightContent>

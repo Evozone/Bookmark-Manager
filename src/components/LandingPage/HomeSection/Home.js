@@ -20,7 +20,7 @@ const Home = () => {
   return (
       <HomeContainer>
         <HomeBg>
-          <BgImg src={BgImgSrc}/>
+          <BgImg alt="HomeBgImg" src={BgImgSrc}/>
         </HomeBg>
         <HomeContent>
           <HomeH1>Bookmark Manager</HomeH1>

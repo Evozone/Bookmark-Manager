@@ -2,31 +2,22 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { FcGoogle } from 'react-icons/fc';
 import { auth, provider } from '../firebase/firebase-config';
-import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 
-import history from '../history';
 import { MobileNavBtnLink } from './LandingPage/Navbar/MobileNavbarElements';
 import { NavBtnLink, NavContentWrap } from './LandingPage/Navbar/NavbarElements';
-import { signInAction, signOutAction } from '../actions';
+import { signInAction } from '../actions';
 import { StartUsingGoogleBtn } from './LandingPage/StartUsingSection/StartUsingElements';
 
 const GoogleAuth = ({ location }) => {
 
     const dispatch = useDispatch();
 
-    onAuthStateChanged(auth, (user) => {
-        if(user){
-            dispatch(signInAction(user.photoURL, user.uid));
-            history.push("/app");
-        }else{
-            dispatch(signOutAction());
-        }
-    });
-
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider)
-        .then(() =>{
-            history.push("/app");
+        .then((result) =>{
+            const user = result.user;
+            dispatch(signInAction(user.photoURL, user.uid));
         }).catch((error) => {
             console.log(error);
             alert("Oops there was some problem! with authentication. Please try again after some time");

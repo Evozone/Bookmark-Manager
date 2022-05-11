@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
-      name="Bookmark"
-      content="Manage your Bookmarks from any device."
+      name="description"
+      content="Manage your Bookmarks seamlessly from any device."
     />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta
+      property="og:title"
+      content="Vishal Shinde | DSA Java | Web Developer | Open Source |"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bookmark-manager-2617.web.app/" />
+    <meta
+      name="keywords"
+      content="Evozone Bookmark Manager, Bookmark Manager, Bookmarks, Vishal-Shinde, vishaltwts, JavaScript, React, vishal-codes"
+    />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-192x192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest" />
     <!--
@@ -41,14 +51,17 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-    if ('serviceWorker' in navigator) {
-      console.log("Will service worker register?");
-      navigator.serviceWorker.register('https://bookmark-manager-2617.web.app/service-worker.js').then(function(reg){
-        console.log("Yes it did.");
-      }).catch(function(err) {
-        console.log("No it didn't. This happened: ", err)
-      });
-    }
+      if ("serviceWorker" in navigator) {
+        // console.log("Will service worker register?");
+        navigator.serviceWorker
+          .register("/serviceWorker.js")
+          .then(function (reg) {
+            // console.log("Yes it did.");
+          })
+          .catch(function (err) {
+            // console.log("No it didn't. This happened: ", err);
+          });
+      }
     </script>
   </body>
 </html>

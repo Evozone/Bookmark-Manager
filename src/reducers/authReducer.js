@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 const authReducer =  (state = INITIAL_STATE, action) => {
     switch(action.type){
         case SIGN_IN:
+            window.localStorage.setItem('user', JSON.stringify(action.payload));
             return { ...state, 
                         isSignedIn: true, 
                         userPhoto: action.payload.userPhoto, 
@@ -16,6 +17,7 @@ const authReducer =  (state = INITIAL_STATE, action) => {
                     };
 
         case SIGN_OUT:
+            window.localStorage.removeItem('user');
             return { ...state, 
                         isSignedIn: false, 
                         userPhoto: null, 

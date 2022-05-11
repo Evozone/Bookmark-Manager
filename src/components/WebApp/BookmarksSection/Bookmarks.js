@@ -21,7 +21,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
         },
         [searchTerm]
     );
-  
+
     return (
         <BookmarksContainer>
             <MuuriComponent 
