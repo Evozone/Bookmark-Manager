@@ -72,12 +72,15 @@ export const HomeH1 = styled.h1`
     font-size: 68px;
     text-align: center;
     margin-bottom: 15px;
+    user-select: none;
+
     @media screen and (max-width: 760px) {
         font-size: 58px;
     }
 `;
 
 export const HomeP = styled.p`
+    user-select: none;
     color: #7bfff6;
     margin-top: 0;
     font-size: 24px;

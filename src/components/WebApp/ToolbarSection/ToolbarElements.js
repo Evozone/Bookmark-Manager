@@ -21,6 +21,7 @@ export const ToggleThemeBtn = styled(WiMoonAltThirdQuarter)`
     left: 45px;
     transition: all 0.5s linear;
     transform: ${({ theme }) => theme==='light' ? "" : "scaleX(-1)"};
+    user-select: none;
 
     @media screen and (max-width: 850px) {
         left: 20px;
@@ -58,6 +59,7 @@ export const SignOutWrapper = styled.div`
     cursor: pointer;
     background: #7BFFF6;
     color: rgb(0, 0, 0);
+    user-select: none;
 
     &:hover{
         background: red;
