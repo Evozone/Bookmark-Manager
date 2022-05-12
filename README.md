@@ -2,8 +2,8 @@
 
 ## Description
 
-This is the Mini Project which [we](https://github.com/Evozone/Bookmark-Manager#team-members-) made in Semester 4(still pursuing) as a part of our Computer Science Engineering course. <br>
-Bookmark manager(v2) is a Progressive Web App which allows you to manage your  bookmarks from any device regardless of the operating system or browser being used.  
+This is a Mini Project for Semester 4 (currently pursuing) of Year 2 of Computer Engineering.  <br>
+Bookmark manager(v2) is a __Progressive Web App__ which allows you to manage your bookmarks from any device regardless of the operating system or browser being used.  
 There are two versions of this project. I have simplied the difference between them with the help of the following table -
 
 | Bookmark Manager    |       v1      |                   v2                  |
@@ -16,7 +16,7 @@ There are two versions of this project. I have simplied the difference between t
 | TechStack           | HTML,<br>CSS,<br>Js | React.js,<br>Redux, <br>Firebase,<br>Styled Components, <br>[muuri-react](https://paol-imi.github.io/muuri-react/) |
 
 
-#### You can check the deployed version1 of the bookmark manager [here](https://evozone.github.io/Bookmark-Manager/) while version2 can be found [here](https://bookmark-manager-2617.web.app/). 
+#### You can check the deployed version of the bookmark manager [here](https://bookmark-manager-2617.web.app/).
 <!-- If you want to contribute to the project then checkout [CONTRIBUTING.md](https://github.com/vishal-codes/react-widgets/blob/main/CONTRIBUTING.md) . -->
 
 <br>
@@ -24,6 +24,15 @@ There are two versions of this project. I have simplied the difference between t
 ## Project Flow
 
 <img src="RepoImages/project-flow.png">
+
+<br>
+
+## Future Scope
+
+The future scope of the project includes -
+- Adding more options to sign in e.g. Sign in with Facebook, Sign in with Twitter, etc.
+- An extension needs to be developed so that a user can add a bookmark more easily without leaving that web page thus removing the step of copying and pasting the website link.
+
 
 <br>
 
@@ -38,9 +47,3 @@ There are two versions of this project. I have simplied the difference between t
 </div>
 
 <br>
-
-## Team Members👩‍💻👨‍💻 :
-
-<a href="https://github.com/Evozone/Bookmark-Manager/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Evozone/Bookmark-Manager" />
-</a>
