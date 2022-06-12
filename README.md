@@ -17,9 +17,10 @@ There are two versions of this project. I have simplified the difference between
 | TechStack           | HTML,<br>CSS,<br>Js | React.js,<br>Redux, <br>Firebase,<br>Styled Components, <br>[muuri-react](https://paol-imi.github.io/muuri-react/) |
 
 
-#### You can check the deployed version of the bookmark manager [here](https://bookmark-manager-2617.web.app/).
+#### You can check the deployed version of the bookmark manager here -
+- [v1 (local storage)](https://evozone.github.io/Bookmark-Manager/)
+- [v2 (cloud storage)](https://bookmark-manager-2617.web.app/)
 <!-- If you want to contribute to the project then checkout [CONTRIBUTING.md](https://github.com/vishal-codes/react-widgets/blob/main/CONTRIBUTING.md) . -->
-
 <br>
 
 ## Project Flow
