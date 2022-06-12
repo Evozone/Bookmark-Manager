@@ -4,7 +4,7 @@
 
 This is a Mini Project for Semester 4 (currently pursuing) of Year 2 of Computer Engineering.  <br>
 Bookmark manager(v2) is a __Progressive Web App__ which allows you to manage your bookmarks from any device regardless of the operating system or browser being used.  
-There are two versions of this project. I have simplied the difference between them with the help of the following table -
+There are two versions of this project. I have simplified the difference between them with the help of the following table -
 
 | Bookmark Manager    |       v1      |                   v2                  |
 |---------------------|:-------------:|:-------------------------------------:|
