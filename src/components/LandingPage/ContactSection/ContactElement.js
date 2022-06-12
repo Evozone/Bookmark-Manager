@@ -32,41 +32,41 @@ export const ContactWrap = styled.div`
 `;
 
 export const LeftContent = styled.div`
-      padding-right: 60px;
-      max-width: 33.3%;      
-      @media screen and (max-width: 1080px) {
+    padding-right: 60px;
+    max-width: 33.3%;
+    @media screen and (max-width: 1080px) {
         padding-left: 50px;
         max-width: 80%;
-      }
-      @media screen and (max-width: 700px) {
+    }
+    @media screen and (max-width: 700px) {
         padding: 10px;
         max-width: 100%;
-      }
+    }
 `;
 
 export const MiddleContent = styled.div`
-      max-width: 33.3%;
-      @media screen and (max-width: 1080px) {
+    max-width: 33.3%;
+    @media screen and (max-width: 1080px) {
         padding-left: 50px;
         max-width: 80%;
-      }
-      @media screen and (max-width: 700px) {
+    }
+    @media screen and (max-width: 700px) {
         padding: 10px;
         max-width: 100%;
-      }
+    }
 `;
 
 export const RightContent = styled.div`
-      padding-left: 60px;
-      max-width: 33.3%;
-      @media screen and (max-width: 1080px) {
+    padding-left: 60px;
+    max-width: 33.3%;
+    @media screen and (max-width: 1080px) {
         padding-left: 50px;
         max-width: 80%;
-      }
-      @media screen and (max-width: 700px) {
+    }
+    @media screen and (max-width: 700px) {
         padding: 10px;
         max-width: 100%;
-      }
+    }
 `;
 
 export const ContentH = styled.p`
@@ -97,12 +97,12 @@ export const ContactBtn = styled.div`
     user-select: none;
     transition: all 0.2s ease-in-out;
 
-    &:hover{
+    &:hover {
         transform: scale(1.04);
         transition: 0.3s ease-in;
         text-decoration: underline;
         background: #0377fc;
         color: #fff;
-        box-shadow: 0 1px 5px rgba(25,255,255,0.7);
+        box-shadow: 0 1px 5px rgba(25, 255, 255, 0.7);
     }
-`
+`;

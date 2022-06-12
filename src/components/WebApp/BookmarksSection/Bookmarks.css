@@ -1,21 +1,21 @@
 .grid {
-  max-width: 1000px;
+    max-width: 1000px;
 }
 
 .item.muuri-item-positioning {
-  z-index: 2;
+    z-index: 2;
 }
 
 .item.muuri-item-dragging,
 .item.muuri-item-releasing {
-  z-index: 3;
+    z-index: 3;
 }
 
 .item.muuri-item-dragging {
-  cursor: move;
-  border: 2px solid black;
+    cursor: move;
+    border: 2px solid black;
 }
 
 .item.muuri-item-hidden {
-  z-index: 0;
+    z-index: 0;
 }

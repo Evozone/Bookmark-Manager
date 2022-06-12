@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { 
+import {
     FeaturesContainer,
     FeaturesWrapper,
     FeaturesRow,
@@ -9,20 +9,13 @@ import {
     TextWrapper,
     Heading,
     Subtitle,
-    ImgWrap ,
-    Img
+    ImgWrap,
+    Img,
 } from './FeaturesElements.js';
 
-
-const Features = ({
-    imgStart,
-    heading,
-    description,
-    img,
-    alt,
-}) => {
-  return (
-          <FeaturesContainer>
+const Features = ({ imgStart, heading, description, img, alt }) => {
+    return (
+        <FeaturesContainer>
             <FeaturesWrapper>
                 <FeaturesRow imgStart={imgStart}>
                     <CloumnOne>
@@ -33,13 +26,13 @@ const Features = ({
                     </CloumnOne>
                     <CloumnTwo>
                         <ImgWrap>
-                            <Img src={img} alt={alt}/>
+                            <Img src={img} alt={alt} />
                         </ImgWrap>
                     </CloumnTwo>
                 </FeaturesRow>
             </FeaturesWrapper>
-          </FeaturesContainer>
-  );
+        </FeaturesContainer>
+    );
 };
 
 export default Features;

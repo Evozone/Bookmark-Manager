@@ -4,7 +4,7 @@ import { Link as LinkScroll } from 'react-scroll/modules';
 
 export const MobileNavBarContainer = styled.aside`
     position: fixed;
-    z-index: 999; 
+    z-index: 999;
     width: 100%;
     height: 100%;
     background: #0d0d0d;
@@ -44,8 +44,8 @@ export const MobileNavBarMenu = styled.ul`
     grid-template-rows: repeat(4, 80px);
     text-align: center;
     user-select: none;
-    
-    @media screen and (max-width: 480px){
+
+    @media screen and (max-width: 480px) {
         grid-template-rows: repeat(6, 80);
     }
 `;
@@ -92,4 +92,3 @@ export const MobileNavBtnLink = styled.div`
     display: flex;
     align-items: center;
 `;
-

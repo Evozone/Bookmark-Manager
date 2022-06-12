@@ -17,11 +17,12 @@ export const HomeContainer = styled.div`
         right: 0;
         bottom: 0;
         overflow: hidden;
-        background: rgb(0,0,0);
+        background: rgb(0, 0, 0);
         background: radial-gradient(
-            circle, rgba(0,0,0,0.5284488795518207) 0%,
-            rgba(0,0,0,0.676908263305322) 38%, 
-            rgba(0,0,0,0.923406862745098) 100%
+            circle,
+            rgba(0, 0, 0, 0.5284488795518207) 0%,
+            rgba(0, 0, 0, 0.676908263305322) 38%,
+            rgba(0, 0, 0, 0.923406862745098) 100%
         );
         z-index: 2;
     }
@@ -86,22 +87,29 @@ export const HomeP = styled.p`
     font-size: 24px;
     text-align: center;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid #7bfff6; /* The typwriter cursor */
+    border-right: 0.15em solid #7bfff6; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .17em; /* Adjust as needed */
-    animation: 
-        typing 3.5s steps(28, end),
-        blink-caret .5s step-end infinite;
+    letter-spacing: 0.17em; /* Adjust as needed */
+    animation: typing 3.5s steps(28, end), blink-caret 0.5s step-end infinite;
 
     @keyframes typing {
-        from { width: 0 }
-        to { width: 22.5em }
+        from {
+            width: 0;
+        }
+        to {
+            width: 22.5em;
+        }
     }
     /* The typewriter cursor effect */
     @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: #7bfff6 }
+        from,
+        to {
+            border-color: transparent;
+        }
+        50% {
+            border-color: #7bfff6;
+        }
     }
 
     @media screen and (max-width: 760px) {
@@ -129,4 +137,4 @@ export const ScrollDown = styled.div`
             transform: translateY(0px);
         }
     }
-`
+`;

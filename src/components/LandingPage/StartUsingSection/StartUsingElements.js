@@ -42,10 +42,10 @@ export const StartUsingCard = styled.div`
     border-radius: 10px;
     max-height: 340px;
     padding: 15px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease-in-out;
 
-    &:hover{
+    &:hover {
         transform: scale(1.02);
         transition: 0.3s ease-in;
     }
@@ -80,10 +80,10 @@ export const StartUsingLocalBtn = styled.div`
     cursor: pointer;
     display: flex;
     text-decoration: none;
-    &:hover{
+    &:hover {
         transform: scale(1.03);
         transition: 0.3s ease-in;
-        box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
     }
 `;
 
@@ -99,10 +99,10 @@ export const StartUsingGoogleBtn = styled.div`
     cursor: pointer;
     display: flex;
     text-decoration: none;
-    &:hover{
+    &:hover {
         transform: scale(1.03);
         transition: 0.3s ease-in;
-        box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
     }
 `;
 

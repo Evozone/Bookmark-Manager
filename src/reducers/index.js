@@ -6,6 +6,6 @@ import updateBookmarkReducer from './updateBookmarkReducer';
 
 export default combineReducers({
     auth: authReducer,
-    modal: modalReducer, 
-    updateBookmarkInfo: updateBookmarkReducer
+    modal: modalReducer,
+    updateBookmarkInfo: updateBookmarkReducer,
 });
