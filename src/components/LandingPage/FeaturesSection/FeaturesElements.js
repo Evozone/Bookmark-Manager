@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FeaturesContainer =styled.div`
+export const FeaturesContainer = styled.div`
     padding-top: 90px;
     background: #141414;
 `;
@@ -14,14 +14,15 @@ export const FeaturesWrapper = styled.div`
     margin-right: auto;
     margin-left: auto;
     padding: 0 24px;
-`
+`;
 export const FeaturesRow = styled.div`
     align-items: center;
     display: grid;
     grid-gap: 30px;
     grid-auto-columns: fit-content(100%);
-    grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2'`)};
-    
+    grid-template-areas: ${({ imgStart }) =>
+        imgStart ? `'col2 col1'` : `'col1 col2'`};
+
     @media screen and (max-width: 960px) {
         grid-template-areas: 'col2' 'col1';
         grid-auto-rows: fit-content(100%);

@@ -2,7 +2,7 @@ import React from 'react';
 
 import IconOne from '../../../assets/StartUsingIcon1.svg';
 import IconTwo from '../../../assets/StartUsingIcon2.svg';
-import { 
+import {
     StartUsingContainer,
     StartUsingHeading,
     StartUsingWrapper,
@@ -15,26 +15,36 @@ import GoogleAuth from '../../GoogleAuth';
 
 const StartUsing = () => {
     const localVersion = () => {
-        window.open("https://evozone.github.io/Bookmark-Manager/");
+        window.open('https://evozone.github.io/Bookmark-Manager/');
     };
 
     return (
-        <StartUsingContainer id="startUsing">
-            <StartUsingHeading >Start Using! </StartUsingHeading>
+        <StartUsingContainer id='startUsing'>
+            <StartUsingHeading>Start Using! </StartUsingHeading>
             <StartUsingWrapper>
                 <StartUsingCard>
-                    <StartUsingIcon alt="SyncDevicesIcon" src={IconOne}/>
-                    <GoogleAuth location={"startUsing"}/> 
-                    <ContentP>If you want to access your bookmarks from any device or brwoser then just Sign in with your google account and voila! you will be redirected to the web app!</ContentP>
+                    <StartUsingIcon alt='SyncDevicesIcon' src={IconOne} />
+                    <GoogleAuth location={'startUsing'} />
+                    <ContentP>
+                        If you want to access your bookmarks from any device or
+                        brwoser then just Sign in with your google account and
+                        voila! you will be redirected to the web app!
+                    </ContentP>
                 </StartUsingCard>
                 <StartUsingCard>
-                <StartUsingIcon alt="NoSyncDevicesIcon" src={IconTwo}/>
-                    <StartUsingLocalBtn onClick={localVersion}>Use Local Version</StartUsingLocalBtn>
-                    <ContentP>If you use local version then your bookmarks would be stored in local storage and won't be available on every device as they wont be synced up.</ContentP>
+                    <StartUsingIcon alt='NoSyncDevicesIcon' src={IconTwo} />
+                    <StartUsingLocalBtn onClick={localVersion}>
+                        Use Local Version
+                    </StartUsingLocalBtn>
+                    <ContentP>
+                        If you use local version then your bookmarks would be
+                        stored in local storage and won&apos;t be available on
+                        every device as they wont be synced up.
+                    </ContentP>
                 </StartUsingCard>
             </StartUsingWrapper>
         </StartUsingContainer>
     );
-}
+};
 
 export default StartUsing;

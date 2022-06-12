@@ -14,7 +14,7 @@ import GoogleAuth from '../../GoogleAuth';
 
 const MobileNavBar = ({ isOpen, toggle }) => {
     return (
-        <MobileNavBarContainer isOpen={isOpen} >
+        <MobileNavBarContainer isOpen={isOpen}>
             <Icon onClick={toggle}>
                 <CloseIcon />
             </Icon>
@@ -23,11 +23,11 @@ const MobileNavBar = ({ isOpen, toggle }) => {
                     <MobileNavItem>
                         <MobileNavBarLink
                             onClick={toggle}
-                            to="features"
+                            to='features'
                             smooth={true}
                             duration={500}
                             spy={true}
-                            exact="true"
+                            exact='true'
                             offset={-80}
                         >
                             Features
@@ -36,11 +36,11 @@ const MobileNavBar = ({ isOpen, toggle }) => {
                     <MobileNavItem>
                         <MobileNavBarLink
                             onClick={toggle}
-                            to="startUsing"
+                            to='startUsing'
                             smooth={true}
                             duration={500}
                             spy={true}
-                            exact="true"
+                            exact='true'
                             offset={-80}
                         >
                             Start Using!
@@ -49,11 +49,11 @@ const MobileNavBar = ({ isOpen, toggle }) => {
                     <MobileNavItem>
                         <MobileNavBarLink
                             onClick={toggle}
-                            to="contact"
+                            to='contact'
                             smooth={true}
                             duration={500}
                             spy={true}
-                            exact="true"
+                            exact='true'
                             offset={-80}
                         >
                             Contact
@@ -61,11 +61,11 @@ const MobileNavBar = ({ isOpen, toggle }) => {
                     </MobileNavItem>
                 </MobileNavBarMenu>
                 <MobileNavBtnWrap>
-                    <GoogleAuth location={"mobileNav"} />
+                    <GoogleAuth location={'mobileNav'} />
                 </MobileNavBtnWrap>
             </MobileNavBarWrapper>
         </MobileNavBarContainer>
     );
-}
+};
 
 export default MobileNavBar;

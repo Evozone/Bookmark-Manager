@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Btn = styled.button`
     font-size: 50px;
     padding: 0px 15px 0 15px;
-    background-color: ${props => props.theme.addBkmBtnBg};
-    color: ${props => props.theme.addBkmIconColor};
+    background-color: ${(props) => props.theme.addBkmBtnBg};
+    color: ${(props) => props.theme.addBkmIconColor};
     border-radius: 50%;
     cursor: pointer;
     border: none;
