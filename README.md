@@ -13,6 +13,7 @@ There are two versions of this project. I have simplified the difference between
 | Sign In with Google |       ❌       |                   ✅                   |
 | Drag and Drop       |       ❌       |                   ✅                   |
 | Search Bookmark     |       ❌       |                   ✅                   |
+| PWA                 |       ❌       |                   ✅                   |
 | TechStack           | HTML,<br>CSS,<br>Js | React.js,<br>Redux, <br>Firebase,<br>Styled Components, <br>[muuri-react](https://paol-imi.github.io/muuri-react/) |
 
 
