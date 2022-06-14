@@ -52,15 +52,10 @@ const WebApp = () => {
         if (localTheme) {
             setTheme(localTheme);
         }
-
         if (userId) {
-            onSnapshot(
-                collection(db, userId),
-                (snapshot) => {
-                    setBookmarks(snapshot.docs.map((doc) => doc.data()));
-                },
-                []
-            );
+            onSnapshot(collection(db, userId), (snapshot) => {
+                setBookmarks(snapshot.docs.map((doc) => doc.data()));
+            });
         }
     }, [userId]);
 
