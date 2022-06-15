@@ -2,7 +2,7 @@ import { MODAL_VISIBILITY } from '../actions/types';
 
 const INITIAL_STATE = {
     modalVisibility: false,
-    modalType: null,
+    modalType: '',
     websiteName: '',
     websiteURL: '',
 };

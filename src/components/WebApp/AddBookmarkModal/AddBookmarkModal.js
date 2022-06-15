@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { modalVisibilityAction } from '../../../actions';
+import {
+    modalVisibilityAction,
+    updateBookmarkInfoAction,
+} from '../../../actions';
 import './AddBookmarkModalElements.js';
 import {
     ModalContainer,
@@ -20,14 +23,12 @@ import {
 const AddBookmarkModal = ({ onSubmit, onUpdate }) => {
     const dispatch = useDispatch();
 
-    const modalVisibility = useSelector((state) => state.modal.modalVisibility);
-    const modalType = useSelector((state) => state.modal.modalType);
-    const websiteNameInitialValue = useSelector(
-        (state) => state.modal.websiteName
-    );
-    const websiteURLInitialValue = useSelector(
-        (state) => state.modal.websiteURL
-    );
+    const {
+        modalType,
+        websiteName: websiteNameInitialValue,
+        websiteURL: websiteURLInitialValue,
+    } = useSelector((state) => state.modal);
+
     const [websiteName, setWebsiteName] = useState(websiteNameInitialValue);
     const [websiteURL, setWebsiteURL] = useState(websiteURLInitialValue);
 
@@ -55,19 +56,18 @@ const AddBookmarkModal = ({ onSubmit, onUpdate }) => {
         modalType === 'addBookmark'
             ? onSubmit(websiteName, websiteURL)
             : onUpdate(websiteName, websiteURL);
-        toggleModalVisibility();
-        setWebsiteName('');
-        setWebsiteURL('');
+        closeModal();
     };
 
-    const toggleModalVisibility = () => {
-        dispatch(modalVisibilityAction(!modalVisibility));
+    const closeModal = () => {
+        dispatch(updateBookmarkInfoAction(''));
+        dispatch(modalVisibilityAction(false, '', '', ''));
     };
 
     return ReactDOM.createPortal(
-        <ModalContainer onClick={toggleModalVisibility}>
+        <ModalContainer onClick={closeModal}>
             <Modal onClick={(e) => e.stopPropagation()}>
-                <CloseIcon onClick={toggleModalVisibility} />
+                <CloseIcon onClick={closeModal} />
                 <ModalHeader>
                     <H3>
                         {modalType === 'addBookmark' ? 'Add' : 'Update'}{' '}

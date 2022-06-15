@@ -1,7 +1,7 @@
 import { UPDTAE_BOOKMARK_INFO } from '../actions/types';
 
 const INITIAL_STATE = {
-    updatedBookmarkId: null,
+    updatedBookmarkId: '',
 };
 
 const updateBookmarkReducer = (state = INITIAL_STATE, action) => {

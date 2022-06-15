@@ -11,7 +11,9 @@ const AddBookmarkBtn = ({ onSubmit, onUpdate }) => {
     const modalVisibility = useSelector((state) => state.modal.modalVisibility);
 
     const toggleModalVisibility = () => {
-        dispatch(modalVisibilityAction(!modalVisibility, 'addBookmark'));
+        dispatch(
+            modalVisibilityAction(!modalVisibility, 'addBookmark', '', '')
+        );
     };
 
     return (

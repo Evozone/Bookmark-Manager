@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import {
+    collection,
     doc,
+    onSnapshot,
     setDoc,
     updateDoc,
-    collection,
-    onSnapshot,
 } from 'firebase/firestore';
 
 import { db } from '../../firebase/firebase-config';
@@ -18,7 +18,6 @@ import Bookmarks from './BookmarksSection/Bookmarks';
 
 const WebApp = () => {
     const userId = useSelector((state) => state.auth.userId);
-
     const idForUpdateBookmark = useSelector(
         (state) => state.updateBookmarkInfo.updatedBookmarkId
     );
@@ -44,7 +43,6 @@ const WebApp = () => {
             websiteURL: websiteURL,
         };
         await updateDoc(doc(db, userId, idForUpdateBookmark), updatedData);
-        renderContent();
     };
 
     useEffect(() => {

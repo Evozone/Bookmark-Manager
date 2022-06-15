@@ -22,7 +22,6 @@ const IndividualBookmark = ({ websiteName, websiteURL, id }) => {
     const dispatch = useDispatch();
 
     const userId = useSelector((state) => state.auth.userId);
-
     const modalVisibility = useSelector((state) => state.modal.modalVisibility);
 
     useRefresh([websiteName]);
