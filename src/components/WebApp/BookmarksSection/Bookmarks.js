@@ -25,7 +25,7 @@ const Bookmarks = ({ bookmarks, searchTerm }) => {
                     window.localStorage.getItem('layout') &&
                     window.localStorage.getItem('layout').split(',')
                 }
-                propsToData={({ websiteName }) => ({ websiteName })}
+                propsToData={(bookmark) => bookmark}
                 filter={filterFunction}
                 onDragEnd={function (item) {
                     const grid = item.getGrid();

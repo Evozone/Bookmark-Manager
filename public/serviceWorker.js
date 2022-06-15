@@ -1,24 +1,41 @@
-self.addEventListener('install', function (event) {
-    console.log('[Service Worker] Installing Service Worker ...', event);
-});
+const CACHE_NAME = 'version-1';
+const urlsToCache = ['index.html', 'offline.html'];
 
-self.addEventListener('activate', function (event) {
-    console.log('[Service Worker] Activating Service Worker ....', event);
-});
+const self = this;
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request).then(function (response) {
-            if (response) {
-                return response;
-            } else {
-                return fetch(event.request).then(function (res) {
-                    return caches.open('dynamic').then(function (cache) {
-                        cache.put(event.request.url, res.clone());
-                        return res;
-                    });
-                });
-            }
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            // eslint-disable-next-line no-console
+            console.log('Opened cache');
+            return cache.addAll(urlsToCache);
         })
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then(() => {
+            return fetch(event.request).catch(() =>
+                caches.match('offline.html')
+            );
+        })
+    );
+});
+
+self.addEventListener('activate', (event) => {
+    const cacheWhitelist = [];
+    cacheWhitelist.push(CACHE_NAME);
+
+    event.waitUntil(
+        caches.keys().then((cacheNames) =>
+            Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (!cacheWhitelist.includes(cacheName)) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            )
+        )
     );
 });
