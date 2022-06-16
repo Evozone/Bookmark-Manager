@@ -117,7 +117,7 @@ export const HomeP = styled.p`
     }
 `;
 
-export const ScrollDown = styled.div`
+export const ScrollDown = styled.p`
     z-index: 5;
     color: #fff;
     font-weight: 600;
@@ -125,6 +125,7 @@ export const ScrollDown = styled.div`
     position: absolute;
     bottom: 7%;
     animation: float 3s ease-in-out infinite;
+    display: none;
 
     @keyframes float {
         0% {
@@ -136,5 +137,38 @@ export const ScrollDown = styled.div`
         100% {
             transform: translateY(0px);
         }
+    }
+
+    @media all and (display-mode: standalone) {
+        display: block;
+    }
+`;
+
+export const InstallPWA = styled.button`
+    cursor: pointer;
+    border-radius: 50px;
+    background: #7bfff6;
+    padding: 16px 16px;
+    color: #000;
+    font-size: 1.4rem;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    position: absolute;
+    bottom: 7%;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: #0377fc;
+        color: #fff;
+    }
+
+    @media all and (display-mode: standalone) {
+        display: none;
     }
 `;
