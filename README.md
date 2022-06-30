@@ -6,14 +6,14 @@ This is a Mini Project for Semester 4 (currently pursuing) of Year 2 of Computer
 Bookmark manager(v2) is a __Progressive Web App__ which allows you to manage your bookmarks from any device regardless of the operating system or browser being used.  
 There are two versions of this project. I have simplified the difference between them with the help of the following table -
 
-| Bookmark Manager    |       v1      |                   v2                  |
-|---------------------|:-------------:|:-------------------------------------:|
-| Toggle Theme        |       ✅       |                   ✅                   |
-| Cloud Storage       |       ❌       |                   ✅                   |
-| Sign In with Google |       ❌       |                   ✅                   |
-| Drag and Drop       |       ❌       |                   ✅                   |
-| Search Bookmark     |       ❌       |                   ✅                   |
-| PWA                 |       ❌       |                   ✅                   |
+| Bookmark Manager    |       v1       |                   v2                 |
+|---------------------|:--------------:|:------------------------------------:|
+| Toggle Theme        |       ✅       |                   ✅                |
+| Cloud Storage       |       ❌       |                   ✅                |
+| Sign In with Google |       ❌       |                   ✅                |
+| Drag and Rearrange  |       ❌       |                   ✅                |
+| Search Bookmark     |       ❌       |                   ✅                |
+| PWA                 |       ❌       |                   ✅                |
 | TechStack           | HTML,<br>CSS,<br>Js | React.js,<br>Redux, <br>Firebase,<br>Styled Components, <br>[muuri-react](https://paol-imi.github.io/muuri-react/) |
 
 
